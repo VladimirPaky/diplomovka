@@ -3,7 +3,7 @@
 @section('content')
 	
 
-  <h2>Zoznam používateľov</h2>
+  <h2>Zoznam MOJICH používateľov</h2>
   <hr>
           
 <table class="table">

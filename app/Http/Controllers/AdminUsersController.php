@@ -53,7 +53,12 @@ class AdminUsersController extends Controller
     {
         //
 
-        $input = $request->all();
+        if (trim($request->password) == '') {
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
 
         if($file = $request->file('photo_id')){
 
@@ -90,7 +95,7 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource.    
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -119,7 +124,13 @@ class AdminUsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        $input = $request->all();
+
+        if (trim($request->password) == '') {
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
 
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();

@@ -8340,7 +8340,7 @@ button.close {
  */
 
 body {
-    background-color: #f8f8f8;
+    background-color: #333333;
 }
 
 #wrapper {
@@ -8350,7 +8350,7 @@ body {
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
-    background-color: #fff;
+    background-color: #7a7b7a;
 }
 
 @media(min-width:768px) {

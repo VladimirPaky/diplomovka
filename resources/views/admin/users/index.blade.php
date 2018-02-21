@@ -3,7 +3,7 @@
 @section('content')
 	
 
-  <h2>Zoznam MOJICH používateľov</h2>
+  <h2>Zoznam používateľov</h2>
   <hr>
           
 <table class="table">
@@ -36,7 +36,8 @@
 		        <td>
 		        	<a href="{{route('admin.users.edit', $user->id)}}"><i class="fa fa-edit"></i></a>
 		        	 {{ Form::open(['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id]]) }}
-		                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+		                {{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
+		                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
 		            {{ Form::close() }}
 		        	
 		        </td>

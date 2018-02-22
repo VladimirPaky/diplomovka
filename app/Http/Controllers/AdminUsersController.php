@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UsersEditRequest;
+use Illuminate\Support\Facades\Session;
 
 use App\User;
 use App\Role;
@@ -76,6 +77,8 @@ class AdminUsersController extends Controller
         User::create($input);
 
         // User::create($request->all());
+
+        Session::flash('added_user', 'Používaťeľ bol pridaný');
         
         return redirect('/admin/users');
 
@@ -143,6 +146,8 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
+        Session::flash('edited_user', 'Používaťeľ bol aktualizovaný');
+
         return redirect('/admin/users');
     }
 
@@ -155,8 +160,41 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
-        $user = User::find($id)->delete();
+        $user = User::findOrFail($id);
 
+        // unlink(public_path() .  $user->photo->file);
+        // unlink($user->photo->file);
+
+        $user->delete();
+
+        Session::flash('deleted_user', 'Používaťeľ bol zmazaný');
+    
         return redirect('/admin/users');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

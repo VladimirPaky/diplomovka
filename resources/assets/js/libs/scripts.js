@@ -70,8 +70,7 @@ $(document).ready(function(){
     //});
 
 
-
-
-
-
+    $(".delete-link").on("click", null, function(){
+        return confirm("Ste si istý?");
+    });
 });

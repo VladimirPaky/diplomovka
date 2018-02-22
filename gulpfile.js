@@ -19,7 +19,8 @@ elixir(function(mix) {
     	'libs/bootstrap.css',
     	'libs/font-awesome.css',
     	'libs/metisMenu.css',
-    	'libs/sb-admin-2.css'
+        'libs/sb-admin-2.css',
+    	'libs/styles.css'
 
     ], './public/css/libs.css')
 

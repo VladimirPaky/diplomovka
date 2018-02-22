@@ -24,7 +24,6 @@ class AuthorPremissions
                 return redirect()->guest('login');
             }
         }
-
         return $next($request);
     }
 }

@@ -44,12 +44,21 @@
      </div>
 
 	<div class="form-group">
-		{!! Form::submit('Aktualizovať používateľa', ['class'=>'btn btn-primary']) !!}
+		{{-- {!! Form::submit('Aktualizovať používateľa', ['class'=>'btn btn-primary']) !!} --}}
+        {{ Form::button('<i class="fa fa-save"></i> Aktualizovať používateľa', ['type' => 'submit', 'class' => 'btn btn-primary'] )  }}
 	</div>
+
+
 
 	@include('includes.form_error')
 
 {!! Form::close() !!}
+
+{{-- DELETE BUTTON --}}
+
+{!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy', $user->id ]]) !!}
+    {{ Form::button('<i class="fa fa-trash"></i> Vymazť používateľa', ['type' => 'submit', 'class' => 'btn btn-danger delete-link'] )  }}
+{{ Form::close() }}
 
 </div>
 @stop

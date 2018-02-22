@@ -2,6 +2,17 @@
 
 @section('content')
 	
+	@if(Session::has('deleted_user'))
+		<p class="bg-danger">{{ session("deleted_user") }}</p>
+	@endif
+
+	@if(Session::has('added_user'))
+		<p class="bg-success">{{ session("added_user") }}</p>
+	@endif
+
+	@if(Session::has('edited_user'))
+		<p class="bg-info">{{ session("edited_user") }}</p>
+	@endif
 
   <h2>Zoznam používateľov</h2>
   <hr>
@@ -35,11 +46,16 @@
 		        <td>{{ $user->updated_at}} ({{ $user->updated_at->diffForHumans() }})</td>
 		        <td>
 		        	<a href="{{route('admin.users.edit', $user->id)}}"><i class="fa fa-edit"></i></a>
-		        	 {{ Form::open(['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id]]) }}
-		                {{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
-		                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
-		            {{ Form::close() }}
-		        	
+
+		        	{{-- IF MAIN ADMIN WITH ID = 18, DO NOT DISPLAY DELETE BUTTON --}}
+		        	@if($user->id == 18)
+		        	{{-- DO NOTHING --}}
+		        	@else
+			        	{{ Form::open(['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id]]) }}
+			                {{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
+			                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+			            {{ Form::close() }}
+		            @endif	
 		        </td>
 		      </tr>
 		@endforeach

@@ -54,10 +54,10 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name . " " }}<i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil používateľa</a>
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i>Profil používateľa</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Nastavenia</a>
                     </li>

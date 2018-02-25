@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>POSTS</h1>
+	<h1>Zoznam článkov</h1>
 	<hr>
 
 	<table class="table">
@@ -26,15 +26,15 @@
 						<td>{{ $post->id }}</td>
 						<td><img height="50" src="{{ $post->photo ? $post->photo->file : 'http://placehold.it/200?text=Post+nema+forku' }}"></td>
 						<td>{{ $post->user->name }}</td>
-						<td>{{ $post->category_id }}</td>
+						<td>{{ $post->category ? $post->category->name : 'Bez ketegórie' }}</td>
+						{{-- {{ var_dump($post->postCategories)}} --}}
 						<td>{{ $post->title }}</td>
 						<td>{{ $post->body }}</td>
 						<td>{{ $post->created_at }}</td>
 						<td>{{ $post->updated_at }}</td>
 					</tr>
-				@endforeach
+				@endforeach	
 			@endif
 		</tbody>
 	</table>
-
-@stop
+	@stop

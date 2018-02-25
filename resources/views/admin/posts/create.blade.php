@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>POSTS create</h1>
+	<h1>Vytvoriť nový článok</h1>
 	<hr>
 
 <div class="row">
@@ -17,7 +17,8 @@
 
     <div class="form-group">
     	{!! Form::label('category_id', 'Ketgória:') !!}
-    	{!! Form::select('category_id', array(1=>'Lesnícstvo', 2=>'Zahrada'), null, ['class'=>'form-control'])!!}
+    	{{-- {!! Form::select('category_id', array(1=>'Lesnícstvo', 2=>'Zahrada'), null, ['class'=>'form-control'])!!} --}}
+    	{!! Form::select('category_id', [''=>'Zvolte ketegóriu'] + $postCategory, null, ['class'=>'form-control'])!!}
     </div>
 
      <div class="form-group">
@@ -41,6 +42,6 @@
 
 </div>	
 
-{!! Form::close() !!}
+{!! Form::close() !!}s
 
 @stop

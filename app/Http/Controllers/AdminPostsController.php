@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Post;
 use App\Photo;
-// use App\Auth;
+use App\PostCategory;
+
 
 class AdminPostsController extends Controller
 {
@@ -34,7 +35,14 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+
+
+        $postCategory = PostCategory::lists('name','id')->all();
+
+        return view('admin.posts.create', compact('postCategory'));
+
+
+        // return view('admin.posts.create');
     }
 
     /**

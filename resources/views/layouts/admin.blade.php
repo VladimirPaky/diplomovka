@@ -154,11 +154,11 @@
                         <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Blog<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">Zoznam člankov</a>
+                                <a href="{{ route('admin.posts.index') }}">Zoznam člankov</a>
                             </li>
 
                             <li>
-                                <a href="/categories/create">Nový članok</a>
+                                <a href="{{ route('admin.posts.create') }}">Nový članok</a>
                             </li>
 
                         </ul>
@@ -289,6 +289,7 @@
                 <h1 class="page-header"></h1>
                 
                 @yield('content')
+                
             </div>
             <!-- /.col-lg-12 -->
         </div>

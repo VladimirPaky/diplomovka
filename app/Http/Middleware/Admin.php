@@ -14,17 +14,24 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    // public function handle($request, Closure $next, $guard = null)
+    // public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
-         if (!Auth::user()->isAdmin()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Not Author.', 401);
-            } else {
-                return redirect()->guest('login');
+        // if (!Auth::user()->isAdmin()) {
+        //     if ($request->ajax() || $request->wantsJson()) {
+        //         return response('Not Admin.', 401);
+        //     } else {
+        //         return redirect()->guest('login');
+        //     }
+        // }
+
+
+
+        if(Auth::check()){
+            if(Auth::user()->isAdmin()){
+                return $next($request);
             }
         }
-        return $next($request);
-
+        return redirect(404);
     }
 }

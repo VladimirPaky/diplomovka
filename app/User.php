@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -24,32 +25,37 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
     public function role(){
         return $this->belongsTo('App\Role');
     }
 
-
     public function photo(){
-
 
         return $this->belongsTo('App\Photo');
     }
 
     public function isAuthor(){
+
         return ($this->role_id == 2 ? true : false);
     }
 
     public function setPasswordAttributes($password){
+
         if (!empty($password)) {
             $this->attributes['password'] = bcrypt($password);
         }
+
     }
 
     public function isAdmin(){
 
       return($this->role_id == 1 && $this->is_active == 1 ? true : false);
 
+    }
+
+    public function posts(){
+
+        return $this->hasMany('App\Post');
     }
 
 

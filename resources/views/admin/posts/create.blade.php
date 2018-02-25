@@ -42,6 +42,6 @@
 
 </div>	
 
-{!! Form::close() !!}s
+{!! Form::close() !!}
 
 @stop

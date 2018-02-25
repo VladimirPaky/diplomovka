@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>Editovanie používateľa: <span style="color: blue">{{$user->name}}</span></h2>
+<h2>Editovanie používateľa: <span style="color: blue">{{$user->name . " (" . $user->role->name . ")"}}</span></h2>
 <hr>
 
 <div class="col-xs col-md-3">
@@ -45,7 +45,7 @@
 
 	<div class="form-group">
 		{{-- {!! Form::submit('Aktualizovať používateľa', ['class'=>'btn btn-primary']) !!} --}}
-        {{ Form::button('<i class="fa fa-save"></i> Aktualizovať používateľa', ['type' => 'submit', 'class' => 'btn btn-primary'] )  }}
+        {{ Form::button('<i class="fa fa-save"></i> Aktualizovať používateľa', ['type' => 'submit', 'class' => 'btn btn-primary save-edit-link'] )  }}
 	</div>
 
 

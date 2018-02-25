@@ -16,6 +16,7 @@
 				<th>Obsah</th>
 				<th>Vytovrený</th>
 				<th>Aktualizovaný</th>
+				<th>Operácie </th>
 			</tr>
 		</thead>
 
@@ -24,14 +25,24 @@
 				@foreach($posts as $post)
 					<tr>
 						<td>{{ $post->id }}</td>
-						<td><img height="50" src="{{ $post->photo ? $post->photo->file : 'http://placehold.it/200?text=Post+nema+forku' }}"></td>
+						<td><img height="50" src="{{ $post->photo ? $post->photo->file : 'http://placehold.it/200?text=Post+nema+fotku' }}"></td>
 						<td>{{ $post->user->name }}</td>
 						<td>{{ $post->category ? $post->category->name : 'Bez ketegórie' }}</td>
 						{{-- {{ var_dump($post->postCategories)}} --}}
-						<td>{{ $post->title }}</td>
-						<td>{{ $post->body }}</td>
-						<td>{{ $post->created_at }}</td>
-						<td>{{ $post->updated_at }}</td>
+						<td>{{ str_limit($post->title, 20) }}</td>
+						<td>{{ str_limit($post->body, 10) }}</td>
+						<td>{{ $post->created_at . " (" . $post->created_at->diffForHumans() . ")" }}</td>
+						<td>{{ $post->created_at . " (" . $post->updated_at->diffForHumans() . ")"}}</td>
+						<td>
+
+							<a href="{{route('admin.posts.edit', $post->id)}}"><i class="fa fa-edit"></i></a>
+
+				        	{{ Form::open(['method' => 'DELETE', 'route' => ['admin.posts.destroy', $post->id]]) }}
+				                {{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
+				                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
+				            {{ Form::close() }}
+
+						</td>
 					</tr>
 				@endforeach	
 			@endif

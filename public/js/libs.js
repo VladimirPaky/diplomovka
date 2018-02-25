@@ -2548,9 +2548,15 @@ $(document).ready(function(){
     //    alert("This is a demo.\n :-)");
     //});
 
-
+    //ASK DO YOU REALLY WANT TO DELETE?
     $(".delete-link").on("click", null, function(){
-        return confirm("Ste si istý?");
+        return confirm("Ste si istý že chcete zmazať?");
     });
+
+    // 
+    $(".save-edit-link").on("click", null, function(){
+        return confirm("Uložiť zmeny?");
+    });
+
 });
 //# sourceMappingURL=libs.js.map

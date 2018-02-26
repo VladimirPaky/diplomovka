@@ -106,7 +106,6 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         //
-
         $user = User::findOrFail($id);
 
         $roles = Role::lists('name', 'id')->all();
@@ -126,7 +125,6 @@ class AdminUsersController extends Controller
         //
 
         $user = User::findOrFail($id);
-
 
         if (trim($request->password) == '') {
             $input = $request->except('password');

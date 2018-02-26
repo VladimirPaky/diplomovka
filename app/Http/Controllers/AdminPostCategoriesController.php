@@ -68,6 +68,15 @@ class AdminPostCategoriesController extends Controller
     public function edit($id)
     {
         //
+
+        $postCategories = PostCategory::findOrFail($id);
+
+        // echo "<pre>";
+        // var_dump($postCategories);
+
+
+        return view ('admin.post-categories.edit', compact('postCategories'));
+
     }
 
     /**
@@ -80,6 +89,15 @@ class AdminPostCategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
+        $postCategories = PostCategory::findOrFail($id);
+
+        $input = $request->all();
+      
+        $postCategories->update($input);
+
+        return redirect('admin/post-categories');
     }
 
     /**
@@ -91,5 +109,8 @@ class AdminPostCategoriesController extends Controller
     public function destroy($id)
     {
         //
+        $postCategories = PostCategory::findOrFail($id)->delete();
+
+        return redirect('admin/post-categories');
     }
 }

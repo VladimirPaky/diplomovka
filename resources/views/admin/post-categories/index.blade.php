@@ -13,6 +13,7 @@
 						<th>ID</th>
 						<th>Meno</th>
 						<th>Vytvorená</th>
+						<th>Operácie</th>
 					</tr>
 				</thead>
 
@@ -23,7 +24,16 @@
 								<td>{{ $category->id }}</td>
 								<td>{{ $category->name }}</td>
 								<td>{{ $category->created_at ? $category->created_at->diffForHumans() : 'Nema dátum'}}</td>
+								<td><a href="{{ route('admin.post-categories.edit', $category->id)}} "><i class="fa fa-edit"></i></a>
+									{{ Form::open(['method' => 'DELETE', 'route' => ['admin.post-categories.destroy', $category->id]]) }}
+					                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
+					            {{ Form::close() }}
+
+								</td>
+					        	
 							</tr>
+
+
 						@endforeach	
 					@endif
 				</tbody>

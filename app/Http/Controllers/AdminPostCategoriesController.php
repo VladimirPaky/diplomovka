@@ -74,7 +74,6 @@ class AdminPostCategoriesController extends Controller
         // echo "<pre>";
         // var_dump($postCategories);
 
-
         return view ('admin.post-categories.edit', compact('postCategories'));
 
     }
@@ -89,7 +88,6 @@ class AdminPostCategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //
-
 
         $postCategories = PostCategory::findOrFail($id);
 

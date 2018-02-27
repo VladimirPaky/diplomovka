@@ -150,10 +150,15 @@ class AdminPostsController extends Controller
         // // unlink($post->photo->file);
 
         // $post->delete();
-        
-
-
+    
         return redirect('/admin/posts');
+    }
+
+    public function post($id){
+        
+        $post = Post::findOrFail($id);
+
+        return view('post', compact('post'));
     }
 }
 //1519575282

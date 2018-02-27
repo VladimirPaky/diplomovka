@@ -11,7 +11,6 @@
 
     <title>Admin - Vidiecky Vzdelávací portál</title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
@@ -23,6 +22,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    @yield('styles');
 
 
 
@@ -57,7 +58,7 @@
                     <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name . " " }}<i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i>Profil používateľa</a>
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil používateľa</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Nastavenia</a>
                     </li>
@@ -138,7 +139,7 @@
                         <a href="#"><i class="fa fa-book fa-fw"></i> Kurzi<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/posts">Zonzam kurzov</a>
+                                <a href="/posts">Zoznam kurzov</a>
                             </li>
 
                             <li>
@@ -173,9 +174,23 @@
                                 <!-- /.nav-third-level -->
                             </li>
 
+                            <li>
+                                <a href="#">Komentáre <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="{{ route('admin.comments.index') }}">Zoznam komentárov</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.post-categories.index') }}">Vytvoriť kategóriu</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-third-level -->
+                            </li>
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+
 {{--                       <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>X<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -192,22 +207,22 @@
                     </li>
  --}}
 
-                   {{--  <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
+                     <li>
+                        <a href="#"><i class="fa fa-image fa-fw"></i> Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{ route('admin.media.index') }}">All</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{ route('admin.media.create') }}">Upload</a>    
                             </li>
 
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
 
-
+{{--
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -273,7 +288,10 @@
 <script src="{{asset('js/libs.js')}}"></script>
 
 
-@yield('footer')
+
+
+@yield('scripts')
+{{-- @yield('footer') --}}
 
 
 

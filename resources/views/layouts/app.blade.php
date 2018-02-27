@@ -59,7 +59,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Prihlásiť sa</a></li>
-                        {{-- <li><a href="{{ url('/register') }}">Zaregistrovať sa</a></li> --}}
+                        <li><a href="{{ url('/register') }}">Zaregistrovať sa</a></li>
                     @else
                         <li class="dropdown">
 

@@ -8,9 +8,9 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-footer {
+/*footer {
     margin: 50px 0;
-}
+}*/
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -8340,7 +8340,7 @@ button.close {
  */
 
 body {
-    background-color: #333333;
+    background-color: #625e7b;
 }
 
 #wrapper {

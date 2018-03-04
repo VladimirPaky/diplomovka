@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('includes.tinymce')
+
 	<h1>Editcia článku: <span style="color: blue">{{$post->title . " (".  $post->id . ")"}}</span></h1>
 	<hr>
 

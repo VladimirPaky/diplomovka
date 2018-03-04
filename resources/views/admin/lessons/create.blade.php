@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('includes.tinymce')
+
 <h2>Nová lekcia</h2>
 <hr>
 
@@ -20,7 +22,7 @@
 
     <div class="form-group">
 		{!! Form::label('content', 'Obsah:') !!}
-		{!! Form::text('content', null, ['class'=>'form-control']) !!}
+		{!! Form::textarea('content', null, ['class'=>'form-control', 'rows'=>15])!!}
 	</div>
 
 	<div class="form-group">

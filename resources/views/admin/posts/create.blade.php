@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('includes.tinymce')
+
 	<h1>Vytvoriť nový článok</h1>
 	<hr>
 

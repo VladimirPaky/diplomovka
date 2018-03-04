@@ -88,9 +88,9 @@ class AdminCourseCategoriesController extends Controller
     {
         //
 
-        $courseCategories = CourseCategory::findOrFail($id);
+        $input = CourseCategory::findOrFail($id);
 
-        $courseCategories->update($request->all());
+        $input->update($request->all());
 
         return redirect('admin/course-categories');
 

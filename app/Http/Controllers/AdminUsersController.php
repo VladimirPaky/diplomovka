@@ -26,7 +26,7 @@ class AdminUsersController extends Controller
         
     $users = User::all();
 
-        return view('admin.users.index', compact('users'));
+    return view('admin.users.index', compact('users'));
 
     }
 
@@ -160,8 +160,7 @@ class AdminUsersController extends Controller
         //
         $user = User::findOrFail($id);
 
-        // unlink(public_path() .  $user->photo->file);
-        // unlink($user->photo->file);
+        unlink(public_path() . "/images/" . $user->photo->getFileName());
 
         $user->delete();
 

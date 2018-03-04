@@ -44,9 +44,9 @@
 			<td>{{ $course->updated_at . " (" . $course->updated_at->diffForHumans() . ")"}}</td>
 			<td>
 
-				<a href="{{route('admin.course.edit', $course->id)}}"><i class="fa fa-edit"></i></a>
+				<a href="{{route('admin.courses.edit', $course->id)}}"><i class="fa fa-edit"></i></a>
 
-				{{ Form::open(['method' => 'DELETE', 'route' => ['admin.course.destroy', $course->id]]) }}
+				{{ Form::open(['method' => 'DELETE', 'route' => ['admin.courses.destroy', $course->id]]) }}
 				{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
 				{{ Form::close() }}
 

@@ -1,0 +1,1 @@
+tinymce.blade.php

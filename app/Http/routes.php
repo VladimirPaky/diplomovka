@@ -28,7 +28,7 @@ Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post'
 Route::group(['middleware'=>'admin'], function() {
 
 	Route::get('/admin', function() {
-    return view('admin.index');	
+        return view('admin.index');	
 	});
     //
     Route::resource('admin/users', 'AdminUsersController');
@@ -39,11 +39,13 @@ Route::group(['middleware'=>'admin'], function() {
 
     Route::resource('admin/media', 'AdminMediaController');
 
-    Route::resource('admin/course', 'AdminCourseController');
+    Route::resource('admin/courses', 'AdminCourseController');
+    
+    Route::resource('admin/lessons', 'AdminCourseLessonsController');
 
     Route::resource('admin/course-categories', 'AdminCourseCategoriesController');
 
-    Route::resource('admin/course.test.question', 'AdminTestQuestionsController');
+    Route::resource('admin/course.tests.questions', 'AdminTestQuestionsController');
 
     // Route::get('amdin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
     //Route::post('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);

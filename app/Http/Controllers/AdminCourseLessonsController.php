@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Course;
-use App\Test;
-use App\CourseCategory;
+use App\Lesson;
 
-class AdminCourseController extends Controller
+class AdminCourseLessonsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +18,9 @@ class AdminCourseController extends Controller
     public function index()
     {
         //
+        $lessons = Lesson::all();
 
-        $courses = Course::all();
-
-        return view('admin.courses.index', compact('courses'));
+        return view('admin.lessons.index', compact('lessons'));
 
     }
 
@@ -35,8 +32,9 @@ class AdminCourseController extends Controller
     public function create()
     {
         //
-        $courseCategories = CourseCategory::lists('name', 'id')->all();
-        return view('admin.courses.create', compact('courseCategories'));
+
+        return view('admin.lessons.create');
+
     }
 
     /**
@@ -49,17 +47,10 @@ class AdminCourseController extends Controller
     {
         //
 
-        $course = Course::create(request()->all());
-
-        $test = new Test();
-        $test->id_course = $course->id;
-        $test->final_exam = true;
-
-        $test->save();
-
-
+        $lesson = Lesson::create($request->all());
 
         return redirect()->back();
+
     }
 
     /**
@@ -83,11 +74,9 @@ class AdminCourseController extends Controller
     {
         //
 
-        $course = Course::findOrFail($id);
+        $lesson = Lesson::findOrFail($id);
 
-        $courseCategories = CourseCategory::lists('name', 'id')->all();
-
-        return view('admin.courses.edit', compact('course', 'courseCategories'));
+        return view('admin.lessons.edit', compact('lesson'));
     }
 
     /**
@@ -101,12 +90,11 @@ class AdminCourseController extends Controller
     {
         //
 
-        $input = Course::findOrFail($id);
+        $input = Lesson::findOrFail($id);
 
         $input->update($request->all());
 
-        return redirect('/admin/courses');
-
+        return redirect('/admin/lessons');
     }
 
     /**
@@ -119,9 +107,8 @@ class AdminCourseController extends Controller
     {
         //
 
-        $course = Course::findOrFail($id)->delete();
+        $lesson = Lesson::findOrFail($id)->delete();
 
         return redirect()->back();
-
     }
 }

@@ -139,11 +139,11 @@
                         <a href="#"><i class="fa fa-book fa-fw"></i> Kurzi<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('admin.course.index') }}">Zoznam kurzov</a>
+                                <a href="{{ route('admin.courses.index') }}">Zoznam kurzov</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.course.create') }}">Nový kurz</a>
+                                <a href="{{ route('admin.courses.create') }}">Nový kurz</a>
                             </li>
 
                             <li>
@@ -154,6 +154,14 @@
                                     </li>
                                 </ul> --}}
                                 <!-- /.nav-third-level -->
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.lessons.index') }}">Zoznam lekcii</a>
+                            </li>
+
+                             <li>
+                                <a href="{{ route('admin.lessons.create') }}">nova lekcia</a>
                             </li>
 
                         </ul>

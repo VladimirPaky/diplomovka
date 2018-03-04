@@ -21,10 +21,7 @@ class CreateLessonsTable extends Migration
             $table->integer('position');
 
 
-
-
-
-
+            
             $table->timestamps();
         });
     }

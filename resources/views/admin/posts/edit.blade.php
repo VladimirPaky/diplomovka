@@ -21,7 +21,6 @@
 
     <div class="form-group">
     	{!! Form::label('category_id', 'Ketgória:') !!}
-    	{{-- {!! Form::select('category_id', array(1=>'Lesnícstvo', 2=>'Zahrada'), null, ['class'=>'form-control'])!!} --}}
     	{!! Form::select('category_id', $postCategory, null, ['class'=>'form-control'])!!}
     </div>
 
@@ -55,6 +54,9 @@
 {!! Form::open(['method' => 'DELETE', 'action' => ['AdminPostsController@destroy', $post->id ]]) !!}
     {{ Form::button('<i class="fa fa-trash"></i> Vymazť článok', ['type' => 'submit', 'class' => 'btn btn-danger delete-link'] )  }}
 {{ Form::close() }}
+
+
+{{-- {!! Form::select('category_id', array(1=>'Lesnícstvo', 2=>'Zahrada'), null, ['class'=>'form-control'])!!} --}}
 
 
 @stop

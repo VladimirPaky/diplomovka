@@ -14,8 +14,12 @@ class Photo extends Model
 	protected $fillable = ['file'];
 
 
-	public function getFileAttribute($photo){
-		return url('/') . $this->uploads . $photo;
+	public function getFileUrl(){
+		return url('/') . $this->uploads . "/" . $this->file;
+	}
+
+	public function getFileName(){
+		return $this->file;
 	}
 
 }

@@ -43,11 +43,11 @@ class AdminMediaController extends Controller
 
 		$photo = Photo::findOrFail($id);
 
-		// unlink($photo->file);
+		unlink(public_path() . "/images/" . $photo->getFileName());
 
-		// $photp->delete();
+		$photo->delete();
 
-		return view('admin.media.index');
+		return redirect()->back();
 
 	}
 }

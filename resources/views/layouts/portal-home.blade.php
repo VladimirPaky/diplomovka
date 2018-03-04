@@ -11,9 +11,11 @@
 
     <title>Blog Home - Start Bootstrap Template</title>
 
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/blog-home.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -209,7 +211,11 @@
     </div>
     <!-- /.container -->
 
-   <script src="{{asset('js/libs.js')}}"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

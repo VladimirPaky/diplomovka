@@ -39,6 +39,10 @@ Route::group(['middleware'=>'admin'], function() {
 
     Route::resource('admin/media', 'AdminMediaController');
 
+    Route::resource('admin/course', 'AdminCourseController');
+
+    Route::resource('admin/course.test.question', 'AdminTestQuestionsController');
+
     // Route::get('amdin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
     //Route::post('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
 

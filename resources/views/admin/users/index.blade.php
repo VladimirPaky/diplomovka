@@ -37,7 +37,7 @@
 		@foreach($users as $user)
 			<tr>
 		        <td>{{ $user->id }}</td>
-		        <td><img height=30 class="img-circle" src="{{ $user->photo ? $user->photo->file : 'http://placehold.it/30/333/ccc?text=Nema+fotku' }}"></td>
+		        <td><img height=30 class="img-circle" src="{{ $user->photo ? $user->photo->getFileUrl() : 'http://placehold.it/30/333/ccc?text=Nema+fotku' }}"></td>
 		        <td>{{ $user->name }}</td>
 		        <td>{{ $user->email }}</td>
 		        <td>{{ $user->role->name }}</td>

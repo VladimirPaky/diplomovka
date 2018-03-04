@@ -10,6 +10,7 @@ class Course extends Model
     protected $fillable = [
     	    'title',
             'description',
+            'category_id',
             'type',
             'city',
             'teacher',
@@ -17,4 +18,9 @@ class Course extends Model
             'certificate',
             'additional_info',
     ];
+
+
+    public function category(){
+        return $this->belongsTo('App\CourseCategory');
+    }
 }

@@ -19,7 +19,7 @@ class CreateTestQuestionsTable extends Migration
             $table->string('type')->default('multianswer');
             $table->boolean('show_correct_answers_count')->default(true);
             $table->integer('position');
-
+            $table->boolean('position_random')->default(false);
 
 
             $table->timestamps();

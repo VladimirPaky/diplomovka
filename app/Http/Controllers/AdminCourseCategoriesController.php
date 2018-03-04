@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Course;
-use App\Test;
 use App\CourseCategory;
 
-class AdminCourseController extends Controller
+class AdminCourseCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,22 +19,21 @@ class AdminCourseController extends Controller
     {
         //
 
-        $courses = Course::all();
+        $courseCategories = CourseCategory::all();
 
-        return view('admin.courses.index', compact('courses'));
-
+        return view('admin/course-categories.index', compact('courseCategories'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource.   
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         //
-        $courseCategories = CourseCategory::lists('name', 'id')->all();
-        return view('admin.courses.create', compact('courseCategories'));
+
+
     }
 
     /**
@@ -49,17 +46,9 @@ class AdminCourseController extends Controller
     {
         //
 
-        $course = Course::create(request()->all());
+        CourseCategory::create($request->all());
 
-        $test = new Test();
-        $test->id_course = $course->id;
-        $test->final_exam = true;
-
-        $test->save();
-
-
-
-        return redirect()->back();
+        return redirect('admin/course-categories');
     }
 
     /**
@@ -82,6 +71,10 @@ class AdminCourseController extends Controller
     public function edit($id)
     {
         //
+
+        $courseCategories = CourseCategory::findOrFail($id);
+
+        return view('admin.course-categories.edit', compact('courseCategories'));
     }
 
     /**
@@ -94,6 +87,13 @@ class AdminCourseController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $courseCategories = CourseCategory::findOrFail($id);
+
+        $courseCategories->update($request->all());
+
+        return redirect('admin/course-categories');
+
     }
 
     /**
@@ -106,9 +106,8 @@ class AdminCourseController extends Controller
     {
         //
 
-        $course = Course::findOrFail($id)->delete();
+        $courseCategory = CourseCategory::findOrFail($id)->delete();
 
-        return redirect()->back();
-
+        return redirect('admin/course-categories');
     }
 }

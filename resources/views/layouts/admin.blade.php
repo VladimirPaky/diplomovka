@@ -139,11 +139,21 @@
                         <a href="#"><i class="fa fa-book fa-fw"></i> Kurzi<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/posts">Zoznam kurzov</a>
+                                <a href="{{ route('admin.course.index') }}">Zoznam kurzov</a>
                             </li>
 
                             <li>
-                                <a href="/posts/create">Nový kurz</a>
+                                <a href="{{ route('admin.course.create') }}">Nový kurz</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.course-categories.index') }}">Kategórie<span class="fa arrow"></span></a>
+                                {{-- <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="">Zoznam kategórií</a>
+                                    </li>
+                                </ul> --}}
+                                <!-- /.nav-third-level -->
                             </li>
 
                         </ul>
@@ -162,26 +172,23 @@
                                 <a href="{{ route('admin.posts.create') }}">Nový članok</a>
                             </li>
                             <li>
-                                <a href="#">Kategórie <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
+                                <a href="{{ route('admin.post-categories.index') }}">Kategórie{{--  <span class="fa arrow"></span> --}}</a>
+                                {{-- <ul class="nav nav-third-level">
                                     <li>
                                         <a href="{{ route('admin.post-categories.index') }}">Zoznam kategórií</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('admin.post-categories.index') }}">Vytvoriť kategóriu</a>
-                                    </li>
-                                </ul>
+                                </ul> --}}
                                 <!-- /.nav-third-level -->
                             </li>
 
                             <li>
-                                <a href="#">Komentáre <span class="fa arrow"></span></a>
+                                <a href="#"> Komentáre <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="{{ route('admin.comments.index') }}">Zoznam komentárov</a>
+                                        <a href="">Zoznam komentárov</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('admin.post-categories.index') }}">Vytvoriť kategóriu</a>
+                                        <a href="">XXX</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-third-level -->
@@ -208,14 +215,14 @@
  --}}
 
                      <li>
-                        <a href="#"><i class="fa fa-image fa-fw"></i> Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-image fa-fw"></i> Súbory<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('admin.media.index') }}">All</a>
+                                <a href="{{ route('admin.media.index') }}">Zoznam súborov</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.media.create') }}">Upload</a>    
+                                <a href="{{ route('admin.media.create') }}">Nahrať súbory</a>    
                             </li>
 
                         </ul>

@@ -17,7 +17,7 @@ class CreateTestQuestionAnswersTable extends Migration
             $table->integer('id_test');
             $table->text('answer');
             $table->boolean('right_answer');
-            $table->integer('position');
+            //$table->integer('position');
 
 
             $table->timestamps();

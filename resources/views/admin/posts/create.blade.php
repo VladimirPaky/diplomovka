@@ -17,7 +17,7 @@
 
     <div class="form-group">
     	{!! Form::label('category_id', 'Ketgória:') !!}
-    	{{-- {!! Form::select('category_id', array(1=>'Lesnícstvo', 2=>'Zahrada'), null, ['class'=>'form-control'])!!} --}}
+    	
     	{!! Form::select('category_id', [''=>'Zvolte ketegóriu'] + $postCategory, null, ['class'=>'form-control'])!!}
     </div>
 
@@ -45,3 +45,8 @@
 {!! Form::close() !!}
 
 @stop
+
+
+
+
+{{-- {!! Form::select('category_id', array(1=>'Lesnícstvo', 2=>'Zahrada'), null, ['class'=>'form-control'])!!} --}}

@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>Media</h1>
+	<h1>Zoznam súborov</h1>
 	<hr>
 
 	<table class="table">

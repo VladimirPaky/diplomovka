@@ -7,7 +7,7 @@
 <h2>Nová lekcia</h2>
 <hr>
 
-{!! Form::open(['method'=>'POST', 'action'=> 'AdminCourseLessonsController@store']) !!}
+{!! Form::open(['method'=>'POST', 'route'=> ['courses.lessons.store', $course_id]]) !!}
 
 
 	<div class="form-group">

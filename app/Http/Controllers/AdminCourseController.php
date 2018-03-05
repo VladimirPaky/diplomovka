@@ -37,7 +37,7 @@ class AdminCourseController extends Controller
     public function create()
     {
         //
-        $courseCategories = CourseCategory::lists('name', 'id')->all();
+        $courseCategories = CourseCategory::pluck('name', 'id')->all();
         return view('admin.courses.create', compact('courseCategories'));
     }
 
@@ -87,7 +87,7 @@ class AdminCourseController extends Controller
 
         $course = Course::findOrFail($id);
 
-        $courseCategories = CourseCategory::lists('name', 'id')->all();
+        $courseCategories = CourseCategory::pluck('name', 'id')->all();
 
         return view('admin.courses.edit', compact('course', 'courseCategories'));
     }

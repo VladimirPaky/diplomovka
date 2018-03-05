@@ -11,6 +11,16 @@ class Lesson extends Model
     protected $fillable = [
     	'title',
     	'content',
-    	'description'
+    	'description',
+    	'course_id',
+    	'test_id',
     ];
+
+    public function course(){
+        return $this->belongsTo('App\Course');
+    }
+
+    public function test(){
+        return $this->hasOne('App\Test');
+    }
 }

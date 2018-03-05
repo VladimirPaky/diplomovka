@@ -9,11 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="base_url" content="{{ url('/') }}">
+
     <title>Admin - Vidiecky Vzdelávací portál</title>
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
-    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -124,11 +128,11 @@
                         <a href="#"><i class="fa fa-user fa-fw"></i> Používatelia<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('admin.users.index')}}">Zoznam používateľov</a>
+                                <a href="{{route('users.index')}}">Zoznam používateľov</a>
                             </li>
 
                             <li>
-                                <a href="{{route('admin.users.create')}}">Nový používateľ</a>
+                                <a href="{{route('users.create')}}">Nový používateľ</a>
                             </li>
 
                         </ul>
@@ -139,15 +143,15 @@
                         <a href="#"><i class="fa fa-book fa-fw"></i> Kurzi<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('admin.courses.index') }}">Zoznam kurzov</a>
+                                <a href="{{ route('courses.index') }}">Zoznam kurzov</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.courses.create') }}">Nový kurz</a>
+                                <a href="{{ route('courses.create') }}">Nový kurz</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.course-categories.index') }}">Kategórie<span class="fa arrow"></span></a>
+                                <a href="{{ route('course-categories.index') }}">Kategórie<span class="fa arrow"></span></a>
                                 {{-- <ul class="nav nav-third-level">
                                     <li>
                                         <a href="">Zoznam kategórií</a>
@@ -155,14 +159,14 @@
                                 </ul> --}}
                                 <!-- /.nav-third-level -->
                             </li>
-
+{{-- 
                             <li>
-                                <a href="{{ route('admin.lessons.index') }}">Zoznam lekcii</a>
+                                <a href="{{ route('courses.lessons.index', ) }}">Zoznam lekcii</a>
                             </li>
 
                              <li>
-                                <a href="{{ route('admin.lessons.create') }}">nova lekcia</a>
-                            </li>
+                                <a href="{{ route('courses.lessons.create') }}">nova lekcia</a>
+                            </li> --}}
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -173,17 +177,17 @@
                         <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Blog<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('admin.posts.index') }}">Zoznam člankov</a>
+                                <a href="{{ route('posts.index') }}">Zoznam člankov</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.posts.create') }}">Nový članok</a>
+                                <a href="{{ route('posts.create') }}">Nový članok</a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.post-categories.index') }}">Kategórie{{--  <span class="fa arrow"></span> --}}</a>
+                                <a href="{{ route('post-categories.index') }}">Kategórie{{--  <span class="fa arrow"></span> --}}</a>
                                 {{-- <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="{{ route('admin.post-categories.index') }}">Zoznam kategórií</a>
+                                        <a href="{{ route('post-categories.index') }}">Zoznam kategórií</a>
                                     </li>
                                 </ul> --}}
                                 <!-- /.nav-third-level -->
@@ -226,11 +230,11 @@
                         <a href="#"><i class="fa fa-image fa-fw"></i> Súbory<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('admin.media.index') }}">Zoznam súborov</a>
+                                <a href="{{ route('media.index') }}">Zoznam súborov</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.media.create') }}">Nahrať súbory</a>    
+                                <a href="{{ route('media.create') }}">Nahrať súbory</a>    
                             </li>
 
                         </ul>
@@ -300,7 +304,7 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('js/libs.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 
 
 

@@ -6,7 +6,7 @@
 
 <div class="col-md-6">
 
-	{!! Form::model($postCategories, ['method'=>'PATCH', 'action'=> ['AdminPostCategoriesController@update', $postCategories->id]]) !!}
+	{!! Form::model($postCategories, ['method'=>'GET', 'action'=> ['AdminPostCategoriesController@update', $postCategories->id]]) !!}
 
 	<div class="form-group">
 		{!! Form::label('name', 'Meno:') !!}

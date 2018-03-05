@@ -37,7 +37,7 @@ class AdminPostsController extends Controller
         //
 
 
-        $postCategory = PostCategory::lists('name','id')->all();
+        $postCategory = PostCategory::pluck('name','id')->all();
 
         return view('admin.posts.create', compact('postCategory'));
 
@@ -100,7 +100,7 @@ class AdminPostsController extends Controller
 
         $post = Post::findOrFail($id);
 
-        $postCategory = PostCategory::lists('name', 'id')->all();
+        $postCategory = PostCategory::pluck('name', 'id')->all();
 
         return view('admin.posts.edit', compact('post', 'postCategory'));
     }

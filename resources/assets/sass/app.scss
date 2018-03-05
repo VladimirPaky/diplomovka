@@ -1,5 +1,21 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-#admin-page{
-	padding-top: 0;
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/scss/font-awesome';
+
+@import './full-slider.css';
+@import './metisMenu.css';
+@import './sb-admin-2.css';
+@import './styles.css';
+
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }

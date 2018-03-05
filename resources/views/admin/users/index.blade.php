@@ -45,13 +45,13 @@
 		        <td>{{ $user->created_at}} ({{ $user->created_at->diffForHumans() }})</td>
 		        <td>{{ $user->updated_at}} ({{ $user->updated_at->diffForHumans() }})</td>
 		        <td>
-		        	<a href="{{route('admin.users.edit', $user->id)}}"><i class="fa fa-edit"></i></a>
+		        	<a href="{{route('users.edit', $user->id)}}"><i class="fa fa-edit"></i></a>
 
 		        	{{-- IF MAIN ADMIN NAME = admin, DO NOT DISPLAY DELETE BUTTON --}}
 		        	@if($user->name == "admin")
 		        	{{-- DO NOTHING --}}
 		        	@else
-			        	{{ Form::open(['method' => 'DELETE', 'route' => ['admin.users.destroy', $user->id]]) }}
+			        	{{ Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) }}
 			                {{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
 			                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
 			            {{ Form::close() }}

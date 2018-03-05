@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Lesson;
+use App\Course;
 
 class AdminCourseLessonsController extends Controller
 {
@@ -15,10 +16,10 @@ class AdminCourseLessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($course_id)
     {
         //
-        $lessons = Lesson::all();
+        $lessons = Course::find($course_id)->lessons()->get();
 
         return view('admin.lessons.index', compact('lessons'));
 
@@ -29,11 +30,14 @@ class AdminCourseLessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($course_id)
     {
         //
+        $data = array(
+            'course_id' => $course_id,
+        );
 
-        return view('admin.lessons.create');
+        return view('admin.lessons.create', $data);
 
     }
 
@@ -43,13 +47,12 @@ class AdminCourseLessonsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $course_id)
     {
         //
+        $lesson = Lesson::create($request->all() + ['course_id' => $course_id]);
 
-        $lesson = Lesson::create($request->all());
-
-        return redirect()->back();
+        return redirect('admin/courses/' . $course_id . '/lessons');
 
     }
 

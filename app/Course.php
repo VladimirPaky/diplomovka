@@ -23,4 +23,12 @@ class Course extends Model
     public function category(){
         return $this->belongsTo('App\CourseCategory');
     }
+
+    public function lessons(){
+        return $this->hasMany('App\Lesson');
+    }
+
+    public function tests(){
+        return $this->hasMany('App\Test');
+    }
 }

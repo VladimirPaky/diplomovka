@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\User;
+use App\Course;
+use App\Post;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +28,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin/index');
+
+
+        $usersNumber = User::count();
+
+        return view('/home', compact('usersNumber')); 
+
+        // return view('admin/d');
     }
 }

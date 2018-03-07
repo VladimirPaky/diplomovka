@@ -44,12 +44,8 @@
 			{{-- <td>{{ $course->created_at . " (" . $course->created_at->diffForHumans() . ")" }}</td> --}}
 			{{-- <td>{{ $course->updated_at . " (" . $course->updated_at->diffForHumans() . ")"}}</td> --}}
 			<td>
-
-				<a href="{{route('courses.edit', $course->id)}}"><i class="fa fa-edit"></i></a>
-
-				<a href="{{route('courses.lessons.create', $course->id)}}"><i class="fa fa-book"></i></a>
-
-
+				<a class="btn btn-sm btn-primary" href="{{route('courses.edit', $course->id)}}"><i class="fa fa-edit"></i></a>
+				
 				{{ Form::open(['method' => 'DELETE', 'route' => ['courses.destroy', $course->id]]) }}
 				{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-round btn-danger btn-sm delete-link'] )  }}
 				{{ Form::close() }}

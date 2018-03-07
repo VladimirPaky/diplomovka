@@ -11359,10 +11359,7 @@ __webpack_require__(13);
 __webpack_require__(48);
 __webpack_require__(49);
 __webpack_require__(50);
-<<<<<<< HEAD
-=======
 __webpack_require__(51);
->>>>>>> newFeatures
 
 window.Vue = __webpack_require__(52);
 
@@ -11379,8 +11376,7 @@ window.Vue = __webpack_require__(52);
 // });
 
 /***/ }),
-/* 12 */,
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -11773,8 +11769,6 @@ var init = function init(params) {
   var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
   targetElement.appendChild(container);
 
-<<<<<<< HEAD
-=======
   var popup = getPopup();
   var content = getContent();
   var input = getChildByClass(content, swalClasses.input);
@@ -14464,7 +14458,6 @@ if (typeof window !== 'undefined' && window.Sweetalert2) window.sweetAlert = win
 /***/ (function(module, exports, __webpack_require__) {
 
 
->>>>>>> newFeatures
 window._ = __webpack_require__(14);
 // window.Popper = require('popper.js').default;
 
@@ -35212,9 +35205,6 @@ $(document).ready(function () {
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 51 */,
-=======
 /* 51 */
 /***/ (function(module, exports) {
 
@@ -35229,14 +35219,15 @@ $(document).ready(function () {
 		var $answerString = $this.data("answer");
 
 		swal({
-			title: 'Edit answer #' + $answerId,
+			title: 'Zmena odpovede',
 			input: 'text',
 			showCancelButton: true,
-			confirmButtonText: 'Submit',
+			confirmButtonText: 'Uložiť',
+			cancelButtonText: 'Zrušiť',
 			inputValue: $answerString,
 			showLoaderOnConfirm: true,
 			inputValidator: function inputValidator(value) {
-				return !value && 'You need to write something!';
+				return !value && 'Zadajte odpoveď	';
 			},
 			preConfirm: function preConfirm() {
 				return new Promise(function (resolve) {
@@ -35271,7 +35262,6 @@ $(document).ready(function () {
 });
 
 /***/ }),
->>>>>>> newFeatures
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 

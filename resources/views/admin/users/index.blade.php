@@ -14,7 +14,7 @@
 		<p class="bg-info">{{ session("edited_user") }}</p>
 	@endif
 
-  <h2>Zoznam používateľov</h2>
+  <h1>Zoznam používateľov</h1>
   <hr>
           
 <table class="table">

@@ -35,28 +35,19 @@
 				<ul id="answers_{{$question->id}}">
 					@section('answers_' . $question->id)
 
-
-
 					@foreach($question->answers->all() as $answer)
 					<li>
-						<span data-question="{{ $question->id }}" data-id="{{ $answer->id}}" data-answer="{{ $answer->answer }}" class="label edit-answer @if($answer->right_answer)label-success @else label-danger @endif">
-
-							{{ $answer->answer }}
+						<span data-question="{{ $question->id }}" data-id="{{ $answer->id}}" data-answer="{{ $answer->answer }}" class="label edit-answer @if($answer->right_answer)label-success @else label-danger @endif">{{ $answer->answer }}
 					</li>
 					@endforeach
 
 					@show
-				</ul>
+				</ul>	
 
-			</td>
-
-            {{-- <td rowspan="{{ $question->answers()->count() }}">{{ $question->show_correct_answers_count }}</td>
-            <td rowspan="{{ $question->answers()->count() }}">{{ $question->position }}</td>
-            <td rowspan="{{ $question->answers()->count() }}">{{ $question->position_random }}</td>
-            <td rowspan="{{ $question->answers()->count() }}"></td> --}}
-        </tr>
-        @endforeach	
-        @endif
-    </tbody>
+			</td>	
+		</tr>
+		@endforeach	
+		@endif
+	</tbody>
 </table>
 @stop

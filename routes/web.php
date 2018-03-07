@@ -24,10 +24,9 @@ Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post'
 
 
 
-
 Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
-	Route::get('/', 'HomeController@index');
+	Route::get('/admin', 'HomeController@index');
     //
     Route::resource('users', 'AdminUsersController');
 
@@ -52,12 +51,11 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
     Route::resource('comments.replies', 'CommentRepliesController');
 
-
-
-
+    Route::get('/dashboard', 'AdminDashboardController@index');
 });	
 
 Route::post('/update-questoin-answer/{answer_id}', 'AdminTestQuestionAnswersController@editAnswerText');
+
 
 Auth::routes();
 

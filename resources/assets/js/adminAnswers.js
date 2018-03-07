@@ -9,14 +9,15 @@ $(document).ready(function(){
 		var $answerString = $this.data("answer");
 
 		swal({
-			title: 'Edit answer #'+ $answerId,
+			title: 'Zmena odpovede',
 			input: 'text',
 			showCancelButton: true,
-			confirmButtonText: 'Submit',
+			confirmButtonText: 'Uložiť',
+			cancelButtonText: 'Zrušiť',
 			inputValue: $answerString,
 			showLoaderOnConfirm: true,
 			inputValidator: (value) => {
-				return !value && 'You need to write something!'
+				return !value && 'Zadajte odpoveď	'
 			},
 			preConfirm: function(){
 				return new Promise((resolve) => {

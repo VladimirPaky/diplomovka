@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Lekcie</h1>
+<h1>Lekcie kurzu: {{ $course->title }}</h1>
 <hr>
 
 <div class="col-md-12">
@@ -28,11 +28,11 @@
 				<td>{{ $lesson->description }}</td>
 				<td>{{ $lesson->title }}</td>
 				<td>{{ $lesson->created_at ? $lesson->created_at->diffForHumans() : 'Nema dátum'}}</td>
-				{{-- <td><a href="{{ route('admin.lessons.edit', $lesson->id)}} "><i class="fa fa-edit"></i></a>
-					{{ Form::open(['method' => 'DELETE', 'route' => ['admin.lessons.destroy', $lesson->id]]) }}
+				<td><a href="{{ route('courses.lessons.edit',[$course_id, $lesson->id])}} "><i class="fa fa-edit"></i></a>
+					{{-- {{ Form::open(['method' => 'DELETE', 'route' => ['admin.lessons.destroy', $lesson->id]]) }}
 					{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
-					{{ Form::close() }}
-				</td> --}}
+					{{ Form::close() }} --}}
+				</td>
 			</tr>
 
 			@endforeach	

@@ -10,7 +10,7 @@
 
 
 
-	{!! Form::model($lesson, ['method'=>'PATCH', 'action'=> ['AdminCourseLessonsController@update', $lesson->id]]) !!}
+	{!! Form::model($lesson, ['method'=>'PATCH', 'route'=> ['courses.lessons.update', $course_id, $lesson->id ]]) !!}
 
 	<div class="form-group">
 		{!! Form::label('title', 'Nazov:') !!}

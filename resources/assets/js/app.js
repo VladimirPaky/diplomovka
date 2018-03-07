@@ -4,11 +4,17 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+window.$ = require('jquery');
+window.swal = require('sweetalert2');
 
 require('./bootstrap');
 require('./metisMenu.js');
 require('./sb-admin-2.js');
 require('./scripts.js');
+require('./adminAnswers.js');
+
+
+
 
 window.Vue = require('vue');
 
@@ -25,4 +31,3 @@ window.Vue = require('vue');
 //     el: '#app'
 // });
 
-window.$ = require('jquery');

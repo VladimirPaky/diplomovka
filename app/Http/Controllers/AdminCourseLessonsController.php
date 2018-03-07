@@ -19,9 +19,12 @@ class AdminCourseLessonsController extends Controller
     public function index($course_id)
     {
         //
-        $lessons = Course::find($course_id)->lessons()->get();
 
-        return view('admin.lessons.index', compact('lessons'));
+        $course = Course::find($course_id);
+
+        $lessons = $course->lessons()->get();
+
+        return view('admin.lessons.index', compact('lessons', 'course_id', 'course'));
 
     }
 
@@ -73,13 +76,12 @@ class AdminCourseLessonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($course_id, $id)
     {
         //
-
         $lesson = Lesson::findOrFail($id);
 
-        return view('admin.lessons.edit', compact('lesson'));
+        return view('admin.lessons.edit', compact('lesson', 'course_id'));
     }
 
     /**
@@ -89,7 +91,7 @@ class AdminCourseLessonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $course_id, $id)
     {
         //
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\TestQuestionAnswer;
+
 class AdminTestQuestionAnswersController extends Controller
 {
     /**
@@ -83,4 +85,23 @@ class AdminTestQuestionAnswersController extends Controller
     {
         //
     }
+
+
+    public function editAnswerText($answer_id)
+    {
+        $answer = TestQuestionAnswer::findOrFail($answer_id);
+        $answer->answer = request()->new_answer;
+
+        $answer->save();
+
+        return response()->json([
+            'status' => '200',
+        ]);
+    }
+
+
 }
+
+
+
+

@@ -14,7 +14,7 @@ class CreateTestQuestionAnswersTable extends Migration
     {
         Schema::create('test_question_answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_test');
+            $table->integer('test_question_id');
             $table->text('answer');
             $table->boolean('right_answer');
             //$table->integer('position');

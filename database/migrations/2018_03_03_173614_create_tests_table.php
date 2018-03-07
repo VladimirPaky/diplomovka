@@ -14,7 +14,7 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_course');
+            $table->integer('course_id');
             $table->boolean('final_exam');
 
 

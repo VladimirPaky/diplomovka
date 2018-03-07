@@ -11,7 +11,16 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.options({ processCssUrls: false });
 
-mix.browserSync('http://localhost/git_diplomovka/vidiecky-vzdelavaci-portal/public/');    
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css/app_sass.css')
+   .less('resources/assets/less/app.less', 'public/css/app_less.css')
+   .styles([
+    	'public/css/app_sass.css',
+    	'public/css/app_less.css'
+	], 'public/css/app.css');
+
+mix.browserSync('http://localhost/git_diplomovka/diplomovka/public/');  
+
+

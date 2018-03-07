@@ -57,6 +57,8 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
 });	
 
+Route::post('/update-questoin-answer/{answer_id}', 'AdminTestQuestionAnswersController@editAnswerText');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

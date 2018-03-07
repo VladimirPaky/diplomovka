@@ -31,4 +31,10 @@ class Course extends Model
     public function tests(){
         return $this->hasMany('App\Test');
     }
+
+    public function questions(){
+        return $this->hasManyThrough('App\TestQuestion','App\Test', 'course_id', 'test_id', 'id');
+    }
+
+
 }

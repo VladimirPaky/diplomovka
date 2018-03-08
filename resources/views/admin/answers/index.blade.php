@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Zoznam kurzov</h1>
+<h1>Zoznam odpovedi pre otazku</h1>
 <hr>
 
 <table class="table">
@@ -42,4 +42,20 @@
 		@endif
 	</tbody>
 </table>
+
+
+{!! Form::open(['method'=>'POST', 'action'=> 'AdminTestQuestionAnswersController@store']) !!}
+
+	<div class="form-group">
+		{!! Form::label('question', 'Nazov:') !!}
+		{!! Form::text('title', null, ['class'=>'form-control'])!!}
+	</div>
+
+	<div class="form-group">
+		{!! Form::submit('Vytvoriť odpoveď', ['class'=>'btn btn-primary']) !!}
+	</div>
+
+	@include('includes.form_error')
+
+{!! Form::close() !!}
 @stop

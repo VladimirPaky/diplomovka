@@ -532,6 +532,7 @@ table.dataTable thead .sorting:after {
         -ms-flex-direction: column;
             flex-direction: column;
     font-size: 18px;
+    padding-left: 0;
 }@charset "UTF-8";
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

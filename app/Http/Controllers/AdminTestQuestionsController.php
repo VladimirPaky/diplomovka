@@ -73,7 +73,9 @@ class AdminTestQuestionsController extends Controller
 
         $question = TestQuestion::create($request->all() + $additionData);
 
-        return redirect()->back();
+        // return redirect()->back();
+
+        return redirect('admin/courses/'. $course_id . '/tests/'. $test_id . '/questions/'. $question->id . "/create");
 
     }
 

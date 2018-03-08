@@ -43,6 +43,7 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
     Route::resource('course-categories', 'AdminCourseCategoriesController');
 
     Route::resource('courses.tests.questions', 'AdminTestQuestionsController');
+    Route::resource('courses.tests.questions.answers', 'AdminTestQuestionAnswersController');
 
     // Route::get('amdin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
     //Route::post('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);

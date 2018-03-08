@@ -3,30 +3,35 @@
 @section('content')
 <h1>Lekcie kurzu: {{ $course->title }} <a class="btn btn-sm btn-primary" href="{{ route('courses.edit',$course_id)}} "><i class="fa fa-edit"></i></a></h1> 
 <hr>
+	<div class="">
+		<p>{{ $course->description }}</p>	
+	</div>
 <div class="row">
-<div class="col-md-6">
-	
-<ul class="kurz-info-ul">
-	<li class="kurz-info-li"><i class="fa fa-list"></i>&nbsp<p>Kategória:&nbsp</p>{{ $course->category ? $course->category->name : 'Bez ketegórie' }}</li>
-	<li class="kurz-info-li"><i class="fa fa-check"></i>&nbsp<p>Forma:&nbsp</p>{{ $course->type }}</li>
-	<li class="kurz-info-li"><i class="fa fa-map-marker"></i>&nbsp<p>Miesto:&nbsp</p>{{ $course->city ?  $course->city : "Chýbaúci údaj"}}</li>
-	<li class="kurz-info-li"><i class="fa fa-user"></i>&nbsp<p>Lektor:&nbsp</p>{{ $course->teacher }}</li>
-</ul>
+
+	<div class="col-md-6">
+
+		<ul class="kurz-info-ul">
+			<li class="kurz-info-li"><i class="fa fa-list"></i>&nbsp<p>Kategória:&nbsp</p>{{ $course->category ? $course->category->name : 'Bez ketegórie' }}</li>
+			<li class="kurz-info-li"><i class="fa fa-check"></i>&nbsp<p>Forma:&nbsp</p>{{ $course->type }}</li>
+			@if($course->city) <li class="kurz-info-li"><i class="fa fa-map-marker"></i>&nbsp<p>Miesto:&nbsp</p>{{ $course->city }} </li>@endif
+			<li class="kurz-info-li"><i class="fa fa-user"></i>&nbsp<p>Lektor:&nbsp</p>{{ $course->teacher }}</li>
+		</ul>
+
+	</div>
+
+	<div class="col-md-6">
+
+		<ul class="kurz-info-ul">
+			{{-- <li><i class="fa fa-user">Kategória: </i>&nbsp<p>Kateg</p>{{ $course->category ? $course->category->name : 'Bez ketegórie' }}</li> --}}
+			<li class="kurz-info-li"><i class="fa fa-money"></i>&nbsp<p>Cena:&nbsp</p>{{ $course->price }}</li>
+			<li class="kurz-info-li"><i class="fa fa-certificate	"></i>&nbsp<p>Certifikát:&nbsp</p>@if($course->certificate) &nbspAno @else &nbspNie @endif</li>
+			<li class="kurz-info-li"><i class="fa fa-info"></i>&nbsp<p>Popis:&nbsp</p>{{ $course->additional_info }}</li>
+		</ul>
+
+	</div>
 
 </div>
-
-<div class="col-md-6">
-	
-<ul class="kurz-info-ul">
-	{{-- <li><i class="fa fa-user">Kategória: </i>&nbsp<p>Kateg</p>{{ $course->category ? $course->category->name : 'Bez ketegórie' }}</li> --}}
-	<li class="kurz-info-li"><i class="fa fa-money"></i>&nbsp<p>Cena:&nbsp</p>{{ $course->price }}</li>
-	<li class="kurz-info-li"><i class="fa fa-certificate	"></i>&nbsp<p>Certifikát:&nbsp</p>@if($course->certificate) &nbspAno @else &nbspNie @endif</li>
-	<li class="kurz-info-li"><i class="fa fa-info"></i>&nbsp<p>Popis:&nbsp</p>{{ $course->additional_info }}</li>
-</ul>
-
-</div>
-
-</div>
+<div class="row">
 
 <div class="col-md-12">
 
@@ -65,8 +70,14 @@
 	</table>
 	@endif
 </div>
-<div>
+
+</div>
+
+<div class="row">
+<div class="col-md-12">
 	<a class="pull-right btn btn-primary" href="{{route('courses.lessons.create', $course->id)}}"><i class="fa fa-plus">&nbsp</i><i class="fa fa-book"></i> Nová lekcia</a>
+</div>
+
 </div>
 
 <div class="row">

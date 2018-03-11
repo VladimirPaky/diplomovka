@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h2>Úprava kurz</h2>
+<h2>Nový kurz</h2>
 <hr>
 
-{!! Form::model($course, ['method'=>'PATCH', 'action'=> ['AdminCourseController@update', $course->id]]) !!}
+{!! Form::open(['method'=>'POST', 'action'=> 'AdminCourseController@store']) !!}
 
 	<div class="form-group">
 		{!! Form::label('title', 'Nazov:') !!}
@@ -19,7 +19,7 @@
 
 	<div class="form-group">
 		{!! Form::label('category_id', 'Ketgória:') !!}
-			{!! Form::select('category_id', $courseCategories, null, ['class'=>'form-control'])!!}
+			{!! Form::select('category_id', [''=>'Zvolte ketegóriu'] + $courseCategories, null, ['class'=>'form-control'])!!}
     </div>
 
 	<div class="form-group">
@@ -53,7 +53,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::submit('Aktualizovať kurz', ['class'=>'btn btn-primary save-edit-link']) !!}
+		{!! Form::submit('Vytvoriť kurz', ['class'=>'btn btn-primary']) !!}
 	</div>
 
 	@include('includes.form_error')

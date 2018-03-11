@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::submit('Aktualizovať kategóriu', ['class'=>'btn btn-primary']) !!}
+		{!! Form::submit('Aktualizovať kategóriu', ['class'=>'btn btn-primary save-edit-link']) !!}
 	</div>
 </div>
 

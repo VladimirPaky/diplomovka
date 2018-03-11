@@ -106,9 +106,18 @@
     display: inline-flex;
 }
 
-
 .price{
     font-size: 16px !important;
     margin-bottom: 10px;
     display: inline-block !important;
+}
+
+.course, .post{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.13);
+    border-radius: 5px;
+}
+
+
+ul.course-lesson-list{
+    list-style: none;
 }

@@ -8,4 +8,6 @@ class UserCourseApplication extends Model
 {
     //
 
+	
+
 }

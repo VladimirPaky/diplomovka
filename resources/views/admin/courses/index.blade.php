@@ -28,7 +28,6 @@
 		@if($courses)
 		@foreach($courses as $course)
 		<tr>
-
 			<td>{{ $course->id }}</td>
 			<td><a href="{{route('courses.lessons.index', $course->id)}}">{{ $course->title }}</i></a></td>
 

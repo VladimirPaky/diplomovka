@@ -41,7 +41,8 @@
 	</tbody>
 </table>
 
-
+<input type="hidden" id="test_id" value="{{$test_id}}">
+<input type="hidden" id="course_id" value="{{$course->id}}">
 {!! Form::open(['method'=>'POST', 'action'=> 'AdminTestQuestionAnswersController@store']) !!}
 
 	<div class="form-group">

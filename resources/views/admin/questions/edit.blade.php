@@ -53,7 +53,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::submit('Aktualizovať kurz', ['class'=>'btn btn-primary']) !!}
+		{!! Form::submit('Aktualizovať kurz', ['class'=>'btn btn-primary save-edit-link']) !!}
 	</div>
 
 	@include('includes.form_error')

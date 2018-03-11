@@ -44,9 +44,6 @@
             <a class="navbar-brand" href="/">Administrácia</a>
         </div>
         <!-- /.navbar-header -->
-
-
-
         <ul class="nav navbar-top-links navbar-right">
 
 

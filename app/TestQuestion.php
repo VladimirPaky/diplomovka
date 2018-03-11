@@ -24,4 +24,10 @@ class TestQuestion extends Model
     public function answers(){
         return $this->hasMany('App\TestQuestionAnswer');
     }
+
+
+
+    public function questions(){
+        return $this->hasMany('App\TestQuestions');
+    }
 }

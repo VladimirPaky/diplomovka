@@ -529,11 +529,21 @@ table.dataTable thead .sorting:after {
     display: inline-flex;
 }
 
-
 .price{
     font-size: 16px !important;
     margin-bottom: 10px;
     display: inline-block !important;
+}
+
+.course, .post{
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.13);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.13);
+    border-radius: 5px;
+}
+
+
+ul.course-lesson-list{
+    list-style: none;
 }/* 
 ========================================= 
 ========================================= 

@@ -24,6 +24,7 @@
 			<th>Obrázok</th>
 			<th>Meno</th>
 			<th>Email</th>
+			<th>Tel. číslo</th>
 			<th>Rola</th>
 			<th>Stav</th>
 			<th>Vytvorený</th>
@@ -40,6 +41,7 @@
 			<td><img height=30 class="img-circle" src="{{ $user->photo ? $user->photo->getFileUrl() : 'http://placehold.it/30/333/ccc?text=Nema+fotku' }}"></td>
 			<td>{{ $user->name }}</td>
 			<td>{{ $user->email }}</td>
+			<td>{{ $user->phone_number }}</td>
 			<td>{{ $user->role->name }}</td>
 			{{-- <td>{{ $user->is_active == '1' ? 'Aktivovaný' : 'Neaktivovaný' }}</td> --}}
 
@@ -54,10 +56,9 @@
 				@if($user->name == "admin")
 				{{-- DO NOTHING --}}
 				@else
-				{{ Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) }}
-				{{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
-				{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
-				{{ Form::close() }}
+					{{ Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) }}
+					{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
+					{{ Form::close() }}
 				@endif	
 			</td>
 		</tr>

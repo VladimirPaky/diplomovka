@@ -7,9 +7,6 @@
 <h1>Editacia lekcie: {{$lesson->title}}</h1>
 
 <hr>
-
-
-
 	{!! Form::model($lesson, ['method'=>'PATCH', 'route'=> ['courses.lessons.update', $course_id, $lesson->id ]]) !!}
 
 	<div class="form-group">
@@ -28,7 +25,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::submit('Aktualizovať lekciu', ['class'=>'btn btn-primary']) !!}
+		{!! Form::submit('Aktualizovať lekciu', ['class'=>'btn btn-primary save-edit-link']) !!}
 	</div>
 
 

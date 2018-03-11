@@ -3,51 +3,50 @@
 @section('content')
 <h1>Lekcie kurzu: {{ $course->title }} <a class="btn btn-sm btn-primary" href="{{ route('courses.edit',$course_id)}} "><i class="fa fa-edit"></i></a></h1> 
 <hr>
-<div class="">
-	<p>{{ $course->description }}</p>	
+<div class="d-i-flex">
+	<p>{{ $course->description }}</p>
 </div>
-<div class="row">
+<div class="row well">
 
-	<div class="col-xl-2 col-md-2 col-sm-4">
+	<div class="col-xl-2 col-md-2 col-sm-4 col-xs-6">
 		<div class="col-6 d-i-flex"><i class="fa fa-list"></i></div>
 		<div class="col-6 d-i-flex"><h5>Kategória</h5></div>
 		<div class="col-6"><p>{{ $course->category ? $course->category->name : 'Bez ketegórie' }}</p></div>
 	</div>
 
-	<div class="col-xl-2 col-md-2 col-sm-4">
+	<div class="col-xl-2 col-md-2 col-sm-4 col-xs-6">
 		<div class="col-6 d-i-flex"><i class="fa fa-check"></i></div>
 		<div class="col-6 d-i-flex"><h5>Forma</h5></div>
 		<div class="col-6"><p>{{ $course->type }}</p></div>
 	</div>
 @if($course->city)
-	<div class="col-xl-2 col-md-2 col-sm-4">
+	<div class="col-xl-2 col-md-2 col-sm-4 col-xs-6">
 		<div class="col-6 d-i-flex"><i class="fa fa-map-marker"></i></div>
 		<div class="col-6 d-i-flex"><h5>Mesto</h5></div>
 		<div class="col-6"><p>{{ $course->city }}</p></div>
 	</div>
 @endif
 
-
-	<div class="col-xl-2 col-md-2 col-sm-4">
+	<div class="col-xl-2 col-md-2 col-sm-4 col-xs-6">
 		<div class="col-6 d-i-flex"><i class="fa fa-user"></i></div>
 		<div class="col-6 d-i-flex"><h5>Lektor</h5></div>
 		<div class="col-6"><p>{{ $course->teacher }}</p></div>
 	</div>
 
-	<div class="col-xl-2 col-md-2 col-sm-4">
+	<div class="col-xl-2 col-md-2 col-sm-4 col-xs-6">
 		<div class="col-6 d-i-flex"><i class="fa fa-money"></i></div>
 		<div class="col-6 d-i-flex"><h5>Cena</h5></div>
 		<div class="col-6"><p>{{ $course->price }}</p></div>
 	</div>
 
-	<div class="col-xl-2 col-md-2 col-sm-4">
-		<div class="col-6 d-i-flex"><i class="fa fa-list"></i></div>
-		<div class="col-6 d-i-flex"><h5>Kategória</h5></div>
+	<div class="col-xl-2 col-md-2 col-sm-4 col-xs-6">
+		<div class="col-6 d-i-flex"><i class="fa fa-certificate"></i></div>
+		<div class="col-6 d-i-flex"><h5>Certifikát</h5></div>
 		<div class="col-6"><p>@if($course->certificate) &nbspAno @else &nbspNie @endif</p></div>
 	</div>
 
-	<div class="col-xl-2 col-md-2 col-sm-4">
-		<div class="col-6 d-i-flex"><i class="fa fa-list"></i></div>
+	<div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="col-6 d-i-flex"><i class="fa fa-file-o"></i></div>
 		<div class="col-6 d-i-flex"><h5>Poznámky</h5></div>
 		<div class="col-6"><p>{{ $course->additional_info }}</p></div>
 	</div>

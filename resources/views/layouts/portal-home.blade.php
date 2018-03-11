@@ -12,13 +12,14 @@
     <meta name="base_url" content="{{ url('/') }}">
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    
     <!-- Bootstrap CSS-->
 {{--     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Font Awesome & Pixeden Icon Stroke icon font-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/pe-icon-7-stroke.css"> --}}
     <!-- Google fonts - Roboto Condensed & Roboto-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400">
+    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400"> --}}
     <!-- lightbox-->
    {{--  <link rel="stylesheet" href="css/lightbox.min.css">
     <!-- theme stylesheet-->

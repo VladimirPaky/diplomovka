@@ -5,6 +5,9 @@
 <h2>Nová otázka</h2>
 <hr>
 
+<input type="hidden" id="test_id" value="{{$test_id}}">
+<input type="hidden" id="course_id" value="{{$course->id}}">
+
 {!! Form::open(['method'=>'POST', 'route'=> ['courses.tests.questions.store', $course_id, $test_id]]) !!}
 
 	<div class="form-group">

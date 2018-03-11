@@ -19,6 +19,11 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label('phone_number', 'Tel. číslo:') !!}
+        {!! Form::text('phone_number', null, ['class'=>'form-control'])!!}
+    </div>
+
+    <div class="form-group">
         {!! Form::label('role_id', 'Rola:') !!}
         {!! Form::select('role_id', [''=>'Vyberte zo zoznamu'] + $roles , null, ['class'=>'form-control'])!!}
     </div>

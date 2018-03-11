@@ -31,7 +31,7 @@ class PortalHomeController extends Controller
         //     $posts => 'posts'
         // );
 
-        return view('portal', compact('courses', 'posts'));
+        return view('portal', compact('course_id','courses', 'posts'));
     }
 
     /**
@@ -99,4 +99,5 @@ class PortalHomeController extends Controller
     {
         //
     }
+
 }

@@ -71,11 +71,6 @@
 
         </ul>
 
-
-
-
-
-
         {{--<ul class="nav navbar-nav navbar-right">--}}
         {{--@if(auth()->guest())--}}
         {{--@if(!Request::is('auth/login'))--}}
@@ -95,9 +90,6 @@
         {{--</li>--}}
         {{--@endif--}}
         {{--</ul>--}}
-
-
-
 
 
         <div class="navbar-default sidebar" role="navigation">
@@ -187,7 +179,7 @@
                                 <!-- /.nav-third-level -->
                             </li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="#"> Komentáre <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
@@ -198,7 +190,7 @@
                                     </li>
                                 </ul>
                                 <!-- /.nav-third-level -->
-                            </li>
+                            </li> --}}
 
                         </ul>
                         <!-- /.nav-second-level -->

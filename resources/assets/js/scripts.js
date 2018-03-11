@@ -79,4 +79,9 @@ $(document).ready(function(){
         return confirm("Uložiť zmeny?");
     });
 
+
+
+
+    $('#mojaTabulka').DataTable();
+
 });

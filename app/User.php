@@ -46,7 +46,6 @@ class User extends Authenticatable
         if (!empty($password)) {
             $this->attributes['password'] = bcrypt($password);
         }
-
     }
 
     public function isAdmin(){
@@ -58,5 +57,10 @@ class User extends Authenticatable
     public function posts(){
 
         return $this->hasMany('App\Post');
+    }
+
+    public function applications(){
+
+        return $this->belongsTo('App\Photo');
     }
 }

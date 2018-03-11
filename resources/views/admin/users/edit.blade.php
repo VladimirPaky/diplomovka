@@ -6,7 +6,7 @@
 <hr>
 
 <div class="col-xs col-md-3">
-<img class="img-responsive img-circle" src="{{ $user->photo ? $user->photo->file : 'http://placehold.it/400/333/ccc?text=Nema+fotku' }}">
+<img class="img-responsive img-circle" src="{{ $user->photo ? $user->photo->getFileUrl() : 'http://placehold.it/400/333/ccc?text=Nema+fotku' }}">
 </div>
 
 <div class="col-xs col-md-9">

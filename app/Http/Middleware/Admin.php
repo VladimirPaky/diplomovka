@@ -30,6 +30,6 @@ class Admin
                 return $next($request);
             }
         }
-        return redirect(404);
+        return response('Nie ste admin.', 401);
     }
 }

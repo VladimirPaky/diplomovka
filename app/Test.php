@@ -20,5 +20,9 @@ class Test extends Model
     	return $this->belongsTo('App\TestQuestion');
     }
 
+    // public function answers(){
+    //     return $this->hasManyThrough('App\TestQuestionAnswers');
+    // }
+
     
 }

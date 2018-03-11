@@ -37,7 +37,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::submit('Vytvoriť článok', ['class'=>'btn btn-primary save-edit-link']) !!}
+		{!! Form::submit('Uložiť', ['class'=>'btn btn-primary save-edit-link']) !!}
 	</div>
 
 </div> {{-- ./ row --}}

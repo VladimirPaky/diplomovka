@@ -5,7 +5,7 @@
 <h1>Zoznam článkov</h1>
 <hr>
 
-<table class="table">
+<table id="mojaTabulka" class="table">
 <thead>
 	<tr>
 		<th>ID</th>
@@ -35,11 +35,11 @@
 		<td>{{ str_limit($post->body, 10) }}</td>
 		<td>{{ $post->created_at . " (" . $post->created_at->diffForHumans() . ")" }}</td>
 		<td>{{ $post->created_at . " (" . $post->updated_at->diffForHumans() . ")"}}</td>
-		<td>
+		<td class="d-i-flex">
 
-			<a href="{{route('admin.posts.edit', $post->id)}}"><i class="fa fa-edit"></i></a>
+			<a class="btn btn-sm btn-primary" href="{{route('posts.edit', $post->id)}}"><i class="fa fa-edit"></i></a>
 
-			{{ Form::open(['method' => 'DELETE', 'route' => ['admin.posts.destroy', $post->id]]) }}
+			{{ Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) }}
 			{{-- {{ Form::submit('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger']) }} --}}
 			{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
 			{{ Form::close() }}

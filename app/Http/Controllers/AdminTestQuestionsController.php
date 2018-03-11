@@ -20,7 +20,7 @@ class AdminTestQuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($course_id, $test_id)
+    public function index($test_question_id)
     {
         //
 
@@ -75,7 +75,7 @@ class AdminTestQuestionsController extends Controller
 
         // return redirect()->back();
 
-        return redirect('admin/courses/'. $course_id . '/tests/'. $test_id . '/questions/'. $question->id . "/create");
+        return redirect('admin/courses/'. $course_id . '/tests/'. $test_id . '/questions/'. $question->id);
 
     }
 

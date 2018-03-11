@@ -55,9 +55,13 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
     Route::get('/dashboard', 'AdminDashboardController@index');
 });	
 
+Route::resource('/portal', 'PortalHomeController');
+
+
 Route::post('/update-questoin-answer/{answer_id}', 'AdminTestQuestionAnswersController@editAnswerText');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home2', 'HomeController@index')->name('home2');

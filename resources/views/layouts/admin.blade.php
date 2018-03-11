@@ -17,9 +17,6 @@
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
-
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,9 +25,6 @@
     <![endif]-->
 
     @yield('styles')
-
-
-
 
 </head>
 
@@ -77,11 +71,6 @@
 
         </ul>
 
-
-
-
-
-
         {{--<ul class="nav navbar-nav navbar-right">--}}
         {{--@if(auth()->guest())--}}
         {{--@if(!Request::is('auth/login'))--}}
@@ -101,9 +90,6 @@
         {{--</li>--}}
         {{--@endif--}}
         {{--</ul>--}}
-
-
-
 
 
         <div class="navbar-default sidebar" role="navigation">
@@ -193,7 +179,7 @@
                                 <!-- /.nav-third-level -->
                             </li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="#"> Komentáre <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
@@ -204,7 +190,7 @@
                                     </li>
                                 </ul>
                                 <!-- /.nav-third-level -->
-                            </li>
+                            </li> --}}
 
                         </ul>
                         <!-- /.nav-second-level -->

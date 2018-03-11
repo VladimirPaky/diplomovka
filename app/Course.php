@@ -36,5 +36,14 @@ class Course extends Model
         return $this->hasManyThrough('App\TestQuestion','App\Test', 'course_id', 'test_id', 'id');
     }
 
+    // public function answers(){
+    //     return $this->hasManyThrough('App\TestQuestionAnswer', 'App\TestQuestion','App\Test', 'course_id', 'test_id', 'question_id', 'id');
+    // }
+
+    public function applications(){
+        return $this->hasMany('App\UserCourseApplication');
+    }
+
+
 
 }

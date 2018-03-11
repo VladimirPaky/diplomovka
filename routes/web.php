@@ -43,6 +43,7 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
     Route::resource('course-categories', 'AdminCourseCategoriesController');
 
     Route::resource('courses.tests.questions', 'AdminTestQuestionsController');
+    Route::resource('courses.tests.questions.answers', 'AdminTestQuestionAnswersController');
 
     // Route::get('amdin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
     //Route::post('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
@@ -54,9 +55,13 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
     Route::get('/dashboard', 'AdminDashboardController@index');
 });	
 
+Route::resource('/portal', 'PortalHomeController');
+
+
 Route::post('/update-questoin-answer/{answer_id}', 'AdminTestQuestionAnswersController@editAnswerText');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home2', 'HomeController@index')->name('home2');

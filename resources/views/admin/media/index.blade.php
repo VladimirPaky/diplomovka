@@ -23,7 +23,7 @@
 						<td>{{ $photo->id }}</td>
 						<td><img height="50" src="{{ $photo->getFileUrl() }}"></td>
 						<td>{{ $photo->created_at ? $photo->created_at : 'Nema datum' }}</td>
-						<td>
+						<td class="d-i-flex">
 
 							{{-- <a href="{{route('admin.posts.edit', $post->id)}}"><i class="fa fa-edit"></i></a> --}}
 

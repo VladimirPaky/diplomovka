@@ -5,7 +5,7 @@
 <h1>Zoznam kurzov</h1>
 <hr>
 <div id="no-more-tables">
-<table class="table table-striped">
+<table id="mojaTabulka" class="table table-striped">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -17,10 +17,10 @@
 			<th>Lektor</th>
 			<th>Cena</th>
 			<th>Certifikat</th>
-			<th>Dodatočné info</th>
+			{{-- <th>Dodatočné info</th> --}}
 			{{-- <th>Vytvorený</th> --}}
 			{{-- <th>Aktualizované</th> --}}
-			<th>Operácie</th>''
+			<th>Operácie</th>
 		</tr>
 	</thead>
 
@@ -38,12 +38,12 @@
 			<td>{{ $course->city }}</td>
 			<td>{{ $course->teacher }}</td>
 			<td>{{ $course->price }}</td>
-			<td>{{ $course->certificate }}</td>
-			<td>{{ str_limit($course->additional_info, 20) }}</td>
+			<td>{{ $course->certificate == 1 ? "Ano" : "Nie"}}</td>
+			{{-- <td>{{ str_limit($course->additional_info, 20) }}</td> --}}
 
 			{{-- <td>{{ $course->created_at . " (" . $course->created_at->diffForHumans() . ")" }}</td> --}}
 			{{-- <td>{{ $course->updated_at . " (" . $course->updated_at->diffForHumans() . ")"}}</td> --}}
-			<td>
+			<td class="d-i-flex">
 				<a class="btn btn-sm btn-primary" href="{{route('courses.edit', $course->id)}}"><i class="fa fa-edit"></i></a>
 				
 				{{ Form::open(['method' => 'DELETE', 'route' => ['courses.destroy', $course->id]]) }}
@@ -51,6 +51,8 @@
 				{{ Form::close() }}
 
 			</td>
+
+		
 		</tr>
 		@endforeach	
 		@endif

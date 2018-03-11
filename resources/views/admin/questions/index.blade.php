@@ -9,7 +9,7 @@
 <input type="hidden" id="course_id" value="{{$course->id}}">
 
 
-<table class="table">
+<table id="mojaTabulka" class="table">
 	<thead>
 		<tr>
 			<th>id</th>
@@ -37,7 +37,7 @@
 
 					@foreach($question->answers->all() as $answer)
 					<li>
-						<span data-question="{{ $question->id }}" data-id="{{ $answer->id}}" data-answer="{{ $answer->answer }}" class="label edit-answer @if($answer->right_answer)label-success @else label-danger @endif">{{ $answer->answer }}
+						<span data-question="{{ $question->id }}" data-id="{{ $answer->id}}" data-answer="{{ $answer->answer }}" class="label edit-answer @if($answer->right_answer)label-success @else label-danger @endif">{{ $answer->answer }}</span>>
 					</li>
 					@endforeach
 

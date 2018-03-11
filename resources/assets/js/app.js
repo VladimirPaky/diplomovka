@@ -8,12 +8,15 @@ window.$ = require('jquery');
 window.swal = require('sweetalert2');
 
 require('./bootstrap');
+require('./jquery.cookie.js');
 require('./metisMenu.js');
 require('./sb-admin-2.js');
 require('./scripts.js');
 require('./adminAnswers.js');
+require('./lightbox.js');
+require('./front.js');
 
-
+import 'datatables.net';
 
 
 window.Vue = require('vue');

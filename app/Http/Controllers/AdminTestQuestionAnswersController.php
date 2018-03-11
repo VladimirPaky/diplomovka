@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\TestQuestionAnswer;
+use App\TestQuestion;
+use App\Course;
+use App\Test;
+
+use View;
 
 class AdminTestQuestionAnswersController extends Controller
 {
@@ -15,9 +20,24 @@ class AdminTestQuestionAnswersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($course_id, $test_id, $question_id)
     {
         //
+        $course = Course::find($course_id);
+        
+        $questions = $course->questions()->get();
+
+        $answers = $course->answers()->get();
+
+        $view = View::make('admin.answers.index', compact('course','questions', 'test_id', 'answers'));
+
+        if(request()->ajax()) {
+            $sections = $view->renderSections(); 
+            return $sections; 
+        }
+
+       return $view;
+
     }
 
     /**

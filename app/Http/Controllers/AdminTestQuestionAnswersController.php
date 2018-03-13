@@ -22,14 +22,16 @@ class AdminTestQuestionAnswersController extends Controller
      */
     public function index($course_id, $test_id, $question_id)
     {
-        //
-        $course = Course::find($course_id);
         
-        $questions = $course->questions()->get();
+        $course = Course::find($course_id);
 
-        $answers = $course->answers()->get();
+        $question = TestQuestion::find($question_id);
+        
+        $answers = $question->answers()->get();
 
-        $view = View::make('admin.answers.index', compact('course','questions', 'test_id', 'answers'));
+        //$answers = $course->answers()->get();
+
+        $view = View::make('admin.answers.index', compact('course', 'test_id', 'question_id', 'answers'));
 
         if(request()->ajax()) {
             $sections = $view->renderSections(); 
@@ -56,9 +58,15 @@ class AdminTestQuestionAnswersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($course_id, $test_id, $question_id)
     {
         //
+        $input = request()->all();
+
+        TestQuestionAnswer::create($input + ['test_question_id' => $question_id]);
+
+        return redirect()->back();
+
     }
 
     /**

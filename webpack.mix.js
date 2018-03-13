@@ -21,6 +21,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
     	'public/css/app_less.css'
 	], 'public/css/app.css');
 
-mix.browserSync('http://localhost/git_diplomovka/diplomovka/public/');  
+mix.browserSync({proxy: 'localhost/git_diplomovka/diplomovka/public/', port: '3002'});  
 
 

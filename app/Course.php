@@ -40,8 +40,9 @@ class Course extends Model
         return $this->hasManyThrough('App\TestQuestionAnswer', 'App\TestQuestion','App\Test', 'course_id', 'test_id', 'question_id', 'id');
     }
 
-    public function applications(){
-        return $this->hasMany('App\UserCourseApplication');
+  public function users(){
+
+        return $this->belongsToMany('App\User', 'user_course_applications','course_id', 'user_id')->withTimestamps();
     }
 
 

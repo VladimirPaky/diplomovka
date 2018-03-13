@@ -127,6 +127,10 @@
   <div class="container">
     <div class="row">
 
+      @if(Session::has('err'))
+        <div class="bg-danger"> {{ Session::get('err') }} </div>
+      @endif
+
         @yield('content')
         
     </div>

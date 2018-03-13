@@ -16,7 +16,7 @@ class CreateTestQuestionAnswersTable extends Migration
             $table->increments('id');
             $table->integer('test_question_id');
             $table->text('answer');
-            $table->boolean('right_answer');
+            $table->boolean('right_answer')->default(false);
             //$table->integer('position');
 
 

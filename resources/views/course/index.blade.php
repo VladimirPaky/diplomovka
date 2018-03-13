@@ -6,7 +6,7 @@
 		<div class="col-md-12">
 			<h2>{{$course->title}}</h2>
 
-{!! Form::open(['method'=>'POST', 'action'=> 'UserCourseApplication@store']) !!}
+{!! Form::open(['method'=>'POST', 'route'=> ['signtocourse', $course->id]]) !!}
 
 	<div class="form-group">
 		{!! Form::submit('Prihlasiť sa a kurz', ['class'=>'btn btn-primary']) !!}

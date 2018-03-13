@@ -25,7 +25,6 @@ class PortalHomeController extends Controller
         $courses = Course::all();   
         $posts = Post::all();
 
-
         // $data = array(
         //     $courses => 'courses',
         //     $posts => 'posts'

@@ -17,6 +17,18 @@
 		{!! Form::text('course_id', null, ['class'=>'form-control'])!!}
 	</div>
 
+	 <div class="form-group">
+        {!! Form::label('payment', 'Status:') !!}
+        {!! Form::select('payment', array(1 => 'Zaplatane', 0=> 'Nezaplatene'), null , ['class'=>'form-control']) !!}
+     </div>
+
+
+	 <div class="form-group">
+        {!! Form::label('access', 'Status:') !!}
+        {!! Form::select('access', array(1 => 'Povoleny', 0=> 'Nepovoleny'), null , ['class'=>'form-control']) !!}
+     </div>
+
+
 	<div class="form-group">
 		{!! Form::submit('Aktualizovať kurz', ['class'=>'btn btn-primary save-edit-link']) !!}
 	</div>

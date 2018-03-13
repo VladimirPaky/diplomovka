@@ -20,7 +20,7 @@ class AdminTestQuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($test_question_id)
+    public function index($course_id, $test_id)
     {
         //
 

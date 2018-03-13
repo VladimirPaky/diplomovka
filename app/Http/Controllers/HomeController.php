@@ -34,6 +34,6 @@ class HomeController extends Controller
 
         return view('/home', compact('usersNumber')); 
 
-        // return view('admin/d');
+        // return view('admindashboard');
     }
 }

@@ -43,11 +43,16 @@
 
 <input type="hidden" id="test_id" value="{{$test_id}}">
 <input type="hidden" id="course_id" value="{{$course->id}}">
-{!! Form::open(['method'=>'POST', 'action'=> 'AdminTestQuestionAnswersController@store']) !!}
+{!! Form::open(['method'=>'POST', 'route'=> ['courses.tests.questions.answers.store', $course->id, $test_id, $question_id]]) !!}
 
 	<div class="form-group">
-		{!! Form::label('question', 'Nazov:') !!}
-		{!! Form::text('question', null, ['class'=>'form-control'])!!}
+		{!! Form::label('answer', 'Nazov:') !!}
+		{!! Form::text('answer', null, ['class'=>'form-control'])!!}
+	</div>
+
+	<div class="form-group">
+		{!! Form::label('right_answer', 'Nazov:') !!}
+		{!! Form::checkbox('right_answer', '1', false); !!}
 	</div>
 
 	<div class="form-group">

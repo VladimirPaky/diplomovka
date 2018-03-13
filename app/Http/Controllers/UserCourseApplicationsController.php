@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Course;
+use Auth;
 
 class UserCourseApplicationsController extends Controller
 {
@@ -85,5 +86,14 @@ class UserCourseApplicationsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function signintocourse($course_id)
+    {
+        //
+        $user = Auth::user();
+        $user->courses()->attach($course_id);
+
+        return redirect()->back();
     }
 }

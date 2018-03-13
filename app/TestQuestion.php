@@ -30,4 +30,8 @@ class TestQuestion extends Model
     public function questions(){
         return $this->hasMany('App\TestQuestions');
     }
+
+    public function countRightAnswers(){
+        return $this->answers()->where('right_answer', 1)->count();
+    }
 }

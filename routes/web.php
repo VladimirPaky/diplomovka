@@ -22,8 +22,6 @@
 
 Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
 
-
-
 Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
 	Route::get('/admin', 'HomeController@index');
@@ -46,22 +44,28 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
     Route::resource('courses.tests.questions.answers', 'AdminTestQuestionAnswersController');
 
-    // Route::get('amdin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
-    //Route::post('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediaController@store']);
+    Route::resource('applications', 'AdminCourseApplicationsController');
 
-    Route::resource('comments', 'PostCommentsController');
+    // Route::resource('comments', 'PostCommentsController');
 
-    Route::resource('comments.replies', 'CommentRepliesController');
+    // Route::resource('comments.replies', 'CommentRepliesController');
 
     Route::get('/dashboard', 'AdminDashboardController@index');
 });	
 
+Route::resource('/applications', 'UserCourseApplicationsController');
+
+Route::post('/signtocourse/{course_id}', 'UserCourseApplicationsController@signintocourse')->name('signtocourse');
+
 Route::resource('/portal', 'PortalHomeController');
+
+Route::get('/test/{test_id}', 'User\UserTestController@startTest');
+
+Route::post('/test/{test_id}', 'User\UserTestController@submitTest')->name('submit_test');
 
 Route::resource('course.lessons', 'UserCourseController');
 
 Route::post('/update-questoin-answer/{answer_id}', 'AdminTestQuestionAnswersController@editAnswerText');
-
 
 Auth::routes();
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\UserCourseApplication;
+
 class AdminCourseApplicationsController extends Controller
 {
     /**
@@ -14,6 +16,10 @@ class AdminCourseApplicationsController extends Controller
     public function index()
     {
         //
+        $courseApplications = UserCourseApplication::all();
+
+        return view('admin/applications.index', compact('courseApplications'));
+
     }
 
     /**
@@ -24,6 +30,9 @@ class AdminCourseApplicationsController extends Controller
     public function create()
     {
         //
+
+
+
     }
 
     /**
@@ -54,9 +63,14 @@ class AdminCourseApplicationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $course_id)
     {
         //
+        $course = Course::findOrFail($course_id);
+        
+        $application = UserCourseApplication::findOrFail($id);
+
+        return view('admin.applications.edit');
     }
 
     /**
@@ -69,6 +83,12 @@ class AdminCourseApplicationsController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $input = UserCourseApplication::findOrFail($id);
+
+        $input->update($request-all());
+
+        return redirect('admin/applications');
     }
 
     /**

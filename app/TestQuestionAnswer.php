@@ -20,4 +20,6 @@ class TestQuestionAnswer extends Model
     	return $this->belongsTo('App\TestQuestion');
     }
 
+
+
 }

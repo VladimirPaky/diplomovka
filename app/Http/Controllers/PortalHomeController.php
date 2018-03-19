@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Pagination\Paginator;
+
+
+
 
 use App\Course;
 use App\Post;
@@ -22,7 +26,7 @@ class PortalHomeController extends Controller
     {
         //
 
-        $courses = Course::all();   
+        $courses = Course::paginate(4);   
         $posts = Post::all();
 
         // $data = array(

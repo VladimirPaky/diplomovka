@@ -11339,7 +11339,9 @@ module.exports = Cancel;
 
 __webpack_require__(11);
 __webpack_require__(59);
-module.exports = __webpack_require__(60);
+__webpack_require__(60);
+__webpack_require__(61);
+module.exports = __webpack_require__(62);
 
 
 /***/ }),
@@ -35360,7 +35362,7 @@ $(document).ready(function () {
 			inputValue: $answerString,
 			showLoaderOnConfirm: true,
 			inputValidator: function inputValidator(value) {
-				return !value && 'Zadajte odpoveď	';
+				return !value && 'Zadajte odpoveď';
 			},
 			preConfirm: function preConfirm() {
 				return new Promise(function (resolve) {
@@ -62561,6 +62563,18 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 /* 60 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 62 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

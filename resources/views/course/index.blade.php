@@ -1,24 +1,26 @@
-@extends('layouts.portal-home')
+@extends('layouts.portal')
 
 @section('content')
 <div class="row">
-	<div class="col">
-		<div class="col-md-12">
-			<h2>{{$course->title}}</h2>
+	<div class="col-md-12">
+		<h2>{{$course->title}}</h2>
 
-{!! Form::open(['method'=>'POST', 'route'=> ['signtocourse', $course->id]]) !!}
+		{!! Form::open(['method'=>'POST', 'route'=> ['signtocourse', $course->id]]) !!}
 
-	<div class="form-group">
-		{!! Form::submit('Prihlasiť sa a kurz', ['class'=>'btn btn-primary']) !!}
-	</div>
+		<div class="form-group">
+			{!! Form::submit('Prihlasiť sa a kurz', ['class'=>'btn btn-primary']) !!}
+		</div>
 
-{!! Form::close() !!}
+		{!! Form::close() !!}
 
-			<hr>
-			<h4>Zoznam lekcii</h4>
+		<hr>
+		<h4>Zoznam lekcii</h4>
 
-			@if($lessons)
-			<div class="row">
+
+
+		@if($lessons)
+		<div class="row">
+			<div class="col-md-12">
 				<ul class="course-lesson-list">
 					@foreach($lessons as $lesson)
 					<li>
@@ -31,13 +33,18 @@
 							</div>
 						</div>
 					</li>
+					@endforeach	
 				</ul>
 			</div>
-			@endforeach	
+			
+			@if(Auth::user())
+
+				<a class="btn btn-ghost" href="{{ route('startTest', $course->id) }}">TEST</a>
 
 			@endif
-		</div>
-	</div>
 
-</div>
-@endsection
+		</div>
+		@endif
+
+	</div>
+	@endsection

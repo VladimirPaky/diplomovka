@@ -9,6 +9,7 @@ use ErrorException;
 
 use Auth;
 use App\Test;
+use App\TestResult;
 
 class UserTestController extends Controller
 {
@@ -54,27 +55,17 @@ class UserTestController extends Controller
 
 		$results = $test->validateAnswers(request()->input('answers'));
 
-		var_dump($results);
-		exit();
 
-		// $points;
+		TestResult::create(['result'=>$results]);
 
-		// if($test->questions->answers('answer_id', $answer_id)->where('right_answer', 1)){
-		// 	$points++;
-		// }
-		
-		// $testData = array(
-		// 	'points' => $points,
-		// 	'user' => $user_id,
-		// 	'tets' => $test_id
-		// );
-	
-		// $results = Results::create($request->all() + $testData);
+		// var_dump($results);
+		// exit();
+
+		// $res = Result::
+
+		// return redirect
 
 		
-
-		// return view('/course/test', $data);
-
 	}
 
 

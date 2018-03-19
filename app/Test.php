@@ -49,20 +49,18 @@ class Test extends Model
                 }
             }
 
-
-
-
-
             $right_answers += (1 / $temp_right_answers) * $right_answers_for_question;
             $wrong_answers += (1 / $temp_right_answers) * $wrong_answers_for_question;
 
-
         }
 
-        return array(
-            'right_answers' => $right_answers,
-            'wrong_answers' => $wrong_answers
-        );
+        // return array(
+        //     'right_answers' => $right_answers,
+        //     'wrong_answers' => $wrong_answers
+        // );
+
+
+        return $right_answers;
     }
 
     

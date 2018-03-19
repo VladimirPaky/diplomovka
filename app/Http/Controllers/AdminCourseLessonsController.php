@@ -16,15 +16,18 @@ class AdminCourseLessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($course_id)
+    public function index(Course $course)
     {
         //
 
-        $course = Course::find($course_id);
+        // $course = Course::find($course_id);
+        // $course_id = $course->id;
+
+        $test = $course->tests()->get();
 
         $lessons = $course->lessons()->get();
 
-        return view('admin.lessons.index', compact('lessons', 'course_id', 'course'));
+        return view('admin.lessons.index', compact('lessons', 'course_id', 'course', 'test'));
 
     }
 
@@ -33,7 +36,7 @@ class AdminCourseLessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($course_id)
+    public function create(Course $course)
     {
         //
         $data = array(

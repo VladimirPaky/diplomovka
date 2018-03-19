@@ -18,7 +18,7 @@ class CreateTestQuestionsTable extends Migration
             $table->text('question');
             $table->string('type')->default('multianswer');
             $table->boolean('show_correct_answers_count')->default(true);
-            $table->integer('position');
+            $table->integer('position')->default(0);
             $table->boolean('position_random')->default(false);
 
 

@@ -8,7 +8,20 @@ class AdminCourseApplication extends Model
 {
     //
 
-     public function applications(){
-    	return $this->belongsTo('App\User');
+    protected $fillable = [
+    	'user_id',
+    	'course_id',
+    	'payment',
+    	'access'
+    ];
+
+     public function course(){
+        return $this->hasMany('App\Course');
     }
+
+
+     public function user(){
+        return $this->hasMany('App\User');
+    }
+
 }

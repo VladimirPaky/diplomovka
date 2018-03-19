@@ -17,8 +17,6 @@ class CreateTestsTable extends Migration
             $table->integer('course_id');
             $table->boolean('final_exam');
 
-
-
             $table->timestamps();
         });
     }

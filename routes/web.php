@@ -36,7 +36,7 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
     Route::resource('courses', 'AdminCourseController');
     
-    Route::resource('courses.lessons', 'AdminCourseLessonsController');
+    Route::resource('course.lesson', 'AdminCourseLessonsController');
 
     Route::resource('course-categories', 'AdminCourseCategoriesController');
 
@@ -50,16 +50,16 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
     // Route::resource('comments.replies', 'CommentRepliesController');
 
-    Route::get('/dashboard', 'AdminDashboardController@index');
+    Route::get('/dashboard', 'AdminDashboardController@index')->name('dashboard');
 });	
 
-Route::resource('/applications', 'UserCourseApplicationsController');
+
 
 Route::post('/signtocourse/{course_id}', 'UserCourseApplicationsController@signintocourse')->name('signtocourse');
 
 Route::resource('/portal', 'PortalHomeController');
 
-Route::get('/test/{test_id}', 'User\UserTestController@startTest');
+Route::get('/test/{test_id}', 'User\UserTestController@startTest')->name('startTest');
 
 Route::post('/test/{test_id}', 'User\UserTestController@submitTest')->name('submit_test');
 

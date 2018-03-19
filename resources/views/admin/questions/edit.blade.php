@@ -2,58 +2,27 @@
 
 @section('content')
 
-<h2>Úprava kurz</h2>
+<h2>Úprava otazky</h2>
 <hr>
 
-{!! Form::model($course, ['method'=>'PATCH', 'action'=> ['AdminCourseController@update', $course->id]]) !!}
+
+<input type="hidden" id="test_id" value="{{$test_id}}">
+<input type="hidden" id="course_id" value="{{$course_id}}">
+
+{!! Form::model($question, ['method'=>'PATCH', 'route'=> ['courses.tests.questions.update', $course_id, $test_id, $question->id]]) !!}
 
 	<div class="form-group">
-		{!! Form::label('title', 'Nazov:') !!}
-		{!! Form::text('title', null, ['class'=>'form-control'])!!}
+		{!! Form::label('question', 'otazka:') !!}
+		{!! Form::text('question', null, ['class'=>'form-control'])!!}
 	</div>
 
-	<div class="form-group">
-		{!! Form::label('description', 'Popis:') !!}
-		{!! Form::text('description', null, ['class'=>'form-control'])!!}
-	</div>
+{{-- 	<div class="form-group">
+		{!! Form::label('position', 'position') !!}
+		{!! Form::text('position', '0', ['class'=>'form-control'])!!}
+	</div> --}}
 
 	<div class="form-group">
-		{!! Form::label('category_id', 'Ketgória:') !!}
-			{!! Form::select('category_id', $courseCategories, null, ['class'=>'form-control'])!!}
-    </div>
-
-	<div class="form-group">
-		{!! Form::label('type', 'Typ:') !!}
-		{!! Form::text('type', null, ['class'=>'form-control'])!!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('city', 'Mesto:') !!}
-		{!! Form::text('city', null, ['class'=>'form-control'])!!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('teacher', 'Lektor:') !!}
-		{!! Form::text('teacher', null, ['class'=>'form-control'])!!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('price', 'Cena:') !!}
-		{!! Form::text('price', null, ['class'=>'form-control'])!!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('certificate', 'Certifikát:') !!}
-		{!! Form::text('certificate', null, ['class'=>'form-control'])!!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('additional_info', 'Dodatočné info:') !!}
-		{!! Form::text('additional_info', null, ['class'=>'form-control'])!!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::submit('Aktualizovať kurz', ['class'=>'btn btn-primary save-edit-link']) !!}
+		{!! Form::submit('Aktualizovat otazku', ['class'=>'btn btn-primary']) !!}
 	</div>
 
 	@include('includes.form_error')

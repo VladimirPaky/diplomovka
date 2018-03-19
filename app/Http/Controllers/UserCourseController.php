@@ -15,16 +15,15 @@ class UserCourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($course_id)
+    public function index(Course $course)
     {
         //
 
-        $course = Course::find($course_id);
-
+        // $course = Course::find($course_id);
 
         $lessons = $course->lessons()->get();
 
-        return view('course.index', compact('lessons', 'course_id', 'course'));
+        return view('course.index', compact('lessons', 'course'));
     }
 
     /**
@@ -54,9 +53,13 @@ class UserCourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Course $course, $id)
     {
         //
+
+        $lessons = $course->lessons()->get();
+
+        return view('course.lesson.lesson', compact('lessons', 'course'));
     }
 
     /**

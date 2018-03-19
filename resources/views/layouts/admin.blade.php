@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -53,12 +53,12 @@
                     <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name . " " }}<i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil používateľa</a>
+{{--                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Profil používateľa</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Nastavenia</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Odhlásiť sa</a>
+                    </li> --}}
+                    {{-- <li class="divider"></li> --}}
+                    <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Odhlásiť sa</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -104,7 +104,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="admin/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="{{route('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
                     <li>
@@ -134,13 +134,17 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('course-categories.index') }}">Kategórie<span class="fa arrow"></span></a>
+                                <a href="{{ route('course-categories.index') }}">Kategórie</a>
                                 {{-- <ul class="nav nav-third-level">
                                     <li>
                                         <a href="">Zoznam kategórií</a>
                                     </li>
                                 </ul> --}}
                                 <!-- /.nav-third-level -->
+                            </li>
+
+                            <li>
+                                <a href="{{ route('applications.index') }}">Prihlášky</a>
                             </li>
 {{-- 
                             <li>

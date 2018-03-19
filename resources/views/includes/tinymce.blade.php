@@ -3,7 +3,7 @@
 
  <script>
   var editor_config = {
-    path_absolute : "/",
+    path_absolute : "http://localhost/git_diplomovka/diplomovka/public/",
     selector: "textarea",
     plugins: [
       "advlist autolink lists link image charmap print preview hr anchor pagebreak",

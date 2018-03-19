@@ -86,9 +86,21 @@ class AdminTestQuestionAnswersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($course_id, $test_id, $question_id, $id)
     {
         //
+
+        $answer = TestQuestionAnswer::findOrFail($id);
+
+        $data = array(
+            'course_id' => $course_id,
+            'test_id' => $test_id,
+            'question_id' => $question_id,
+            'answer' => $answer
+
+        );
+
+        return view('admin.answers.edit', $data);
     }
 
     /**
@@ -98,9 +110,15 @@ class AdminTestQuestionAnswersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $course_id, $test_id, $question_id, $id)
     {
-        //
+        // 
+
+        $input = TestQuestionAnswer::findOrFail($id);
+
+        $input->update($request->all());
+
+        return redirect('/admin/courses/' . $course_id .'/tests/' . $test_id . '/questions/' . $question_id .'/answers');
     }
 
     /**
@@ -109,9 +127,14 @@ class AdminTestQuestionAnswersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($course_id, $test_id, $question_id, $id)
     {
         //
+
+        $question = TestQuestionAnswer::findOrFail($id)->delete();
+
+        return redirect()->back();
+
     }
 
 

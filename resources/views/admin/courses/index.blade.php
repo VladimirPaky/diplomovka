@@ -14,6 +14,7 @@
 			<th>Kategória</th>
 			<th>Forma</th>
 			<th>Mesto</th>
+			<th>Region</th>
 			<th>Lektor</th>
 			<th>Cena</th>
 			<th>Certifikat</th>
@@ -29,12 +30,13 @@
 		@foreach($courses as $course)
 		<tr>
 			<td>{{ $course->id }}</td>
-			<td><a href="{{route('courses.lessons.index', $course->id)}}">{{ $course->title }}</i></a></td>
+			<td><a href="{{route('course.lesson.index', $course->slug)}}">{{ $course->title }}</i></a></td>
 
 			{{-- <td>{{ str_limit($course->description, 20) }}</td> --}}
 			<td>{{ $course->category ? $course->category->name : 'Bez ketegórie' }}</td>
 			<td>{{ $course->type }}</td>
 			<td>{{ $course->city }}</td>
+			<td>{{ $course->region->region }}</td>
 			<td>{{ $course->teacher }}</td>
 			<td>{{ $course->price }}</td>
 			<td>{{ $course->certificate == 1 ? "Ano" : "Nie"}}</td>
@@ -50,7 +52,6 @@
 				{{ Form::close() }}
 
 			</td>
-
 		
 		</tr>
 		@endforeach	

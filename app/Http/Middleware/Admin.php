@@ -30,6 +30,6 @@ class Admin
                 return $next($request);
             }
         }
-        return response('Nie ste admin.', 401);
+        return redirect('/portal');
     }
 }

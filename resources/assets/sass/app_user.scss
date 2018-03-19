@@ -1,0 +1,24 @@
+
+// Fonts
+
+
+// Variables
+@import "variables";
+
+@import '~font-awesome/scss/font-awesome';
+@import '~sweetalert2/src/sweetalert2';
+@import '~datatables/media/css/jquery.dataTables.min.css';
+
+
+
+@import './styles.css';
+@import './style.green.css';
+@import './pe-icon-7-stroke.css';
+@import './lightbox.css';
+
+
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}

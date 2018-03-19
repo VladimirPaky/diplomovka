@@ -46,5 +46,27 @@ class Course extends Model
     }
 
 
+    public static function boot(){
+
+        parent::boot();
+
+        static::saving(function ($model) {
+            $model->slug = str_slug($model->title);
+        });
+    }
+
+    public function getRouteKeyName(){
+        
+        return 'slug';
+
+    }
+
+    public function region(){
+        return $this->belongsTo('App\Region');
+    }
+
+     
+
+
 
 }

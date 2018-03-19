@@ -19,10 +19,12 @@ class CreateCoursesTable extends Migration
             $table->integer('category_id')->unsigned()->index()->default(1);
             $table->string('type');
             $table->string('city')->nullable();
+            $table->integer('region_id')->unsigned()->index();
             $table->string('teacher');
             $table->string('price');
             $table->boolean('certificate')->default(false);
             $table->text('additional_info');
+            $table->text('slug');
             $table->timestamps();
 
         });

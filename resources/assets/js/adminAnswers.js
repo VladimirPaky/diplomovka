@@ -17,7 +17,7 @@ $(document).ready(function(){
 			inputValue: $answerString,
 			showLoaderOnConfirm: true,
 			inputValidator: (value) => {
-				return !value && 'Zadajte odpoveď	'
+				return !value && 'Zadajte odpoveď'
 			},
 			preConfirm: function(){
 				return new Promise((resolve) => {

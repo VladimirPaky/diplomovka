@@ -54,7 +54,7 @@ NAVBAR
 }
 @media (min-width: 768px) {
   .home .navbar-default {
-    background-color: transparent;
+    background-color: rgba(66, 146, 68, 0.85);
   }
   .home .navbar-default a.navbar-brand {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);

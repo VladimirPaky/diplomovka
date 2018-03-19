@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="base_url" content="{{ url('/') }}">
 
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('css/app_user.css')}}" rel="stylesheet">
     
     <!-- Bootstrap CSS-->
 {{--     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -71,25 +71,25 @@
           <div class="modal-header">
             <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
             <h4 id="Login" class="modal-title">Customer login</h4>
-        </div>
-        <div class="modal-body">
+          </div>
+          <div class="modal-body">
             <form action="customer-orders.html" method="post">
               <div class="form-group">
                 <input id="email_modal" type="text" placeholder="email" class="form-control">
-            </div>
-            <div class="form-group">
+              </div>
+              <div class="form-group">
                 <input id="password_modal" type="password" placeholder="password" class="form-control">
-            </div>
-            <p class="text-center">
+              </div>
+              <p class="text-center">
                 <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
-            </p>
-        </form>
-        <p class="text-center text-muted">Not registered yet?</p>
-        <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+              </p>
+            </form>
+            <p class="text-center text-muted">Not registered yet?</p>
+            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
 <!-- *** LOGIN MODAL END ***-->
 <div id="carousel-home" data-ride="carousel" class="carousel slide carousel-fullscreen carousel-fade">
   <!-- Indicators-->
@@ -128,7 +128,7 @@
     <div class="row">
 
       @if(Session::has('err'))
-        <div class="bg-danger"> {{ Session::get('err') }} </div>
+        <div class="bg-danger"> {{ Session::get('has-error') }} </div>
       @endif
 
         @yield('content')
@@ -157,7 +157,7 @@
 {{-- <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.cookie.js"> </script>
 <script src="js/lightbox.min.js"></script> --}}
-<script src="js/front.js"></script><!-- substitute:livereload -->
+{{-- <script src="js/front.js"></script><!-- substitute:livereload --> --}}
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
 <!---->
 <script>

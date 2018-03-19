@@ -33,6 +33,11 @@
 	</div>
 
 	<div class="form-group">
+		{!! Form::label('region_id', 'Region:') !!}
+		{!! Form::select('region_id', [''=>'Zvolte region'] + $courseRegions, null, ['class'=>'form-control'])!!}
+    </div>
+
+	<div class="form-group">
 		{!! Form::label('teacher', 'Lektor:') !!}
 		{!! Form::text('teacher', null, ['class'=>'form-control'])!!}
 	</div>

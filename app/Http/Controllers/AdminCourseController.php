@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Course;
 use App\Test;
 use App\CourseCategory;
+use App\Region; 
 
 class AdminCourseController extends Controller
 {
@@ -38,7 +39,8 @@ class AdminCourseController extends Controller
     {
         //
         $courseCategories = CourseCategory::pluck('name', 'id')->all();
-        return view('admin.courses.create', compact('courseCategories'));
+        $courseRegions = Region::pluck('region', 'id')->all();
+        return view('admin.courses.create', compact('courseCategories', 'courseRegions'));
     }
 
     /**
@@ -54,7 +56,7 @@ class AdminCourseController extends Controller
         $course = Course::create(request()->all());
 
         $test = new Test();
-        $test->id_course = $course->id;
+        $test->course_id = $course->id;
         $test->final_exam = true;
 
         $test->save();
@@ -89,7 +91,10 @@ class AdminCourseController extends Controller
 
         $courseCategories = CourseCategory::pluck('name', 'id')->all();
 
-        return view('admin.courses.edit', compact('course', 'courseCategories'));
+        $courseRegions = Region::pluck('region', 'id')->all();
+
+
+        return view('admin.courses.edit', compact('course', 'courseCategories', 'courseRegions'));
     }
 
     /**

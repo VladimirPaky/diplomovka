@@ -88,7 +88,6 @@
 }   
 
 
-
 /*KURZ info*/
 
 .kurz-info-li{
@@ -112,7 +111,7 @@
     display: inline-block !important;
 }
 
-.course, .post{
+.course:hover, .post:hover{
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.13);
     border-radius: 5px;
 }
@@ -120,4 +119,16 @@
 
 ul.course-lesson-list{
     list-style: none;
+}
+    
+.image > a > img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.post{
+    padding-right: 0px;
+    padding-left: 0px;
+    /*margin: 3px;*/
 }

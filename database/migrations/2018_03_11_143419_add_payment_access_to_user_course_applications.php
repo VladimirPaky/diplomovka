@@ -29,6 +29,9 @@ class AddPaymentAccessToUserCourseApplications extends Migration
     {
         Schema::table('user_course_applications', function (Blueprint $table) {
             //
+
+            $table->dropColumn('payment');
+            $table->dropColumn('access');
         });
     }
 }

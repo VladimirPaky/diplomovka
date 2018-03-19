@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>Úprava kurz</h2>
+<h2>Úprava kurzu: {{ $course->title}}</h2>
 <hr>
 
 {!! Form::model($course, ['method'=>'PATCH', 'action'=> ['AdminCourseController@update', $course->id]]) !!}
@@ -24,13 +24,18 @@
 
 	<div class="form-group">
 		{!! Form::label('type', 'Typ:') !!}
-		{!! Form::text('type', null, ['class'=>'form-control'])!!}
+		{!! Form::select('type', ['Online' => 'Online', 'Skolenie'=>'Skolenie'],null, ['class'=>'form-control'])!!}
 	</div>
 
 	<div class="form-group">
 		{!! Form::label('city', 'Mesto:') !!}
 		{!! Form::text('city', null, ['class'=>'form-control'])!!}
 	</div>
+
+	<div class="form-group">
+		{!! Form::label('region_id', 'Region:') !!}
+			{!! Form::select('region_id', $courseRegions, null, ['class'=>'form-control'])!!}
+    </div>
 
 	<div class="form-group">
 		{!! Form::label('teacher', 'Lektor:') !!}
@@ -44,7 +49,7 @@
 
 	<div class="form-group">
 		{!! Form::label('certificate', 'Certifikát:') !!}
-		{!! Form::text('certificate', null, ['class'=>'form-control'])!!}
+		{!! Form::select('certificate', ['1' => 'Ano', '0'=>'Nie'],null, ['class'=>'form-control'])!!}
 	</div>
 
 	<div class="form-group">

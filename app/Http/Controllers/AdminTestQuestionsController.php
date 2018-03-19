@@ -28,7 +28,6 @@ class AdminTestQuestionsController extends Controller
         
         $questions = $course->questions()->get();
 
-
         $view = View::make('admin.questions.index', compact('course','questions', 'test_id', 'test_question_id'));
 
         if(request()->ajax()) {
@@ -75,7 +74,7 @@ class AdminTestQuestionsController extends Controller
 
         // return redirect()->back();
 
-        return redirect('admin/courses/'. $course_id . '/tests/'. $test_id . '/questions/'. $question->id);
+        return redirect('admin/courses/'. $course_id . '/tests/'. $test_id . '/questions/');
 
     }
 
@@ -96,9 +95,19 @@ class AdminTestQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($course_id, $test_id, $id)
     {
         //
+
+        $question = TestQuestion::findOrFail($id);
+
+        $data = array(
+            'test_id' => $test_id,
+            'course_id' => $course_id,
+            'question' => $question
+        );
+
+        return view('admin.questions.edit', $data);
     }
 
     /**
@@ -108,9 +117,18 @@ class AdminTestQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $course_id, $test_id, $id)
     {
         //
+
+        $question = TestQuestion::findOrFail($id);
+
+        $question->update($request->all());
+
+        return redirect('/admin/courses/' . $course_id .'/tests/' . $test_id . '/questions');
+
+
+
     }
 
     /**
@@ -119,8 +137,12 @@ class AdminTestQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($course_id, $test_id, $id)
     {
         //
+
+        $question = TestQuestion::findOrFail($id)->delete();
+
+        return redirect()->back();
     }
 }

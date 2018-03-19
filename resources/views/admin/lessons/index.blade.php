@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Lekcie kurzu: {{ $course->title }} <a class="btn btn-sm btn-primary" href="{{ route('courses.edit',$course_id)}} "><i class="fa fa-edit"></i></a></h1> 
+<h1>Lekcie kurzu: {{ $course->title }} <a class="btn btn-sm btn-primary" href="{{ route('courses.edit',$course->id)}} "><i class="fa fa-edit"></i></a></h1> 
 <hr>
+
+
 <div class="d-i-flex">
 	<p>{{ $course->description }}</p>
 </div>
@@ -74,13 +76,13 @@
 				@foreach($lessons as $lesson)
 				<tr>
 					<td>{{ $lesson->id }}</td>
-					<td><a href="{{ route('courses.lessons.show',[$course_id, $lesson->id])}} "><i class="fa fa-eye"></i>{{ " " . $lesson->title }}</a></td>
+					<td><a href="{{ route('course.lesson.show',[$course->id, $lesson->id])}} "><i class="fa fa-eye"></i>{{ " " . $lesson->title }}</a></td>
 					<td>{{ $lesson->description }}</td>
 				
 					<td>{{ $lesson->created_at ? $lesson->created_at->diffForHumans() : 'Nema dátum'}}</td>
 					<td>{{ $lesson->updated_at ? $lesson->created_at->diffForHumans() : 'Nema dátum'}}</td>
-					<td class="d-i-flex"><a class="btn btn-sm btn-primary" href="{{ route('courses.lessons.edit',[$course_id, $lesson->id])}} "><i class="fa fa-edit"></i></a>
-						{{ Form::open(['method' => 'DELETE', 'route' => ['courses.lessons.destroy', $course_id, $lesson->id]]) }}
+					<td class="d-i-flex"><a class="btn btn-sm btn-primary" href="{{ route('course.lesson.edit',[$course->id, $lesson->id])}} "><i class="fa fa-edit"></i></a>
+						{{ Form::open(['method' => 'DELETE', 'route' => ['course.lesson.destroy', $course->id, $lesson->id]]) }}
 						{{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm delete-link'] )  }}
 						{{ Form::close() }}
 					</td>
@@ -94,10 +96,10 @@
 	</div>
 
 </div>
-
+@if($course->type == "Online") <a class="btn btn-sm btn-primary" href="{{route('courses.tests.questions.index', [$course->id, $course->id])}}">Otazky na test</a> @endif
 <div class="row">
 	<div class="col-md-12">
-		<a class="pull-right btn btn-primary" href="{{route('courses.lessons.create', $course->id)}}"><i class="fa fa-plus">&nbsp</i><i class="fa fa-book"></i> Nová lekcia</a>
+		<a class="pull-right btn btn-primary" href="{{route('course.lesson.create', $course->id)}}"><i class="fa fa-plus">&nbsp</i><i class="fa fa-book"></i> Nová lekcia</a>
 	</div>
 
 </div>

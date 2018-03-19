@@ -6,7 +6,7 @@
 <hr>
 
 <input type="hidden" id="test_id" value="{{$test_id}}">
-<input type="hidden" id="course_id" value="{{$course->id}}">
+<input type="hidden" id="course_id" value="{{$course_id}}">
 
 {!! Form::open(['method'=>'POST', 'route'=> ['courses.tests.questions.store', $course_id, $test_id]]) !!}
 
@@ -15,10 +15,10 @@
 		{!! Form::text('question', null, ['class'=>'form-control'])!!}
 	</div>
 
-	<div class="form-group">
+{{-- 	<div class="form-group">
 		{!! Form::label('position', 'position') !!}
 		{!! Form::text('position', '0', ['class'=>'form-control'])!!}
-	</div>
+	</div> --}}
 
 	<div class="form-group">
 		{!! Form::submit('Vytvoriť otazku', ['class'=>'btn btn-primary']) !!}

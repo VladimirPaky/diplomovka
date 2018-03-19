@@ -13,7 +13,7 @@
 		<th>Používateľ</th>
 		<th>Kategória</th>
 		<th>Nadpis</th>
-		<th>Obsah</th>
+		{{-- <th>Obsah</th> --}}
 		<th>Vytovrený</th>
 		<th>Aktualizovaný</th>
 		<th>Operácie </th>
@@ -25,14 +25,14 @@
 	@foreach($posts as $post)
 	<tr>
 		<td>{{ $post->id }}</td>
-		<td><img height="50" src="{{ $post->photo ? $post->photo->file : 'http://placehold.it/200?text=Post+nema+fotku' }}"></td>
+		<td><img height="50" src="{{ $post->photo ? $post->photo->getFileUrl() : 'http://placehold.it/200?text=Post+nema+fotku' }}"></td>
 		<td>{{ $post->user->name }}</td>
 
 		<td>{{ $post->category ? $post->category->name : 'Bez ketegórie' }}</td>
 		
 		{{-- {{ var_dump($post->postCategories)}} --}}
 		<td>{{ str_limit($post->title, 20) }}</td>
-		<td>{{ str_limit($post->body, 10) }}</td>
+		{{-- <td>{{ str_limit($post->body, 10) }}</td> --}}
 		<td>{{ $post->created_at . " (" . $post->created_at->diffForHumans() . ")" }}</td>
 		<td>{{ $post->created_at . " (" . $post->updated_at->diffForHumans() . ")"}}</td>
 		<td class="d-i-flex">

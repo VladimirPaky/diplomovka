@@ -30,9 +30,10 @@ class Test extends Model
 
         $right_answers = 0;
         $wrong_answers = 0;
+        $question_count = 0;
 
         foreach ($questions as $question_key => $answers) {
-
+            $question_count++;
 
             $test_question = TestQuestion::find($question_key);
             $temp_right_answers = $test_question->countRightAnswers();
@@ -59,8 +60,10 @@ class Test extends Model
         //     'wrong_answers' => $wrong_answers
         // );
 
+        $resultPercent = (100/$question_count)*$right_answers;
+        // return $right_answers;
 
-        return $right_answers;
+        return $resultPercent;
     }
 
     

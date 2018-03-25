@@ -11,14 +11,15 @@ class Course extends Model
     	    'title',
             'description',
             'category_id',
+            'photo_id',
             'type',
             'city',
+            'region_id',
             'teacher',
             'price',
             'certificate',
             'additional_info',
     ];
-
 
     public function category(){
         return $this->belongsTo('App\CourseCategory');
@@ -45,6 +46,9 @@ class Course extends Model
         return $this->belongsToMany('App\User', 'user_course_applications','course_id', 'user_id')->withTimestamps();
     }
 
+    public function photo(){
+        return $this->belongsTo('App\Photo');
+    }
 
     public static function boot(){
 
@@ -65,7 +69,6 @@ class Course extends Model
         return $this->belongsTo('App\Region');
     }
 
-     
 
 
 

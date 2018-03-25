@@ -10,6 +10,7 @@ use App\Course;
 use App\Test;
 use App\CourseCategory;
 use App\Region; 
+use App\Photo; 
 
 class AdminCourseController extends Controller
 {
@@ -38,8 +39,12 @@ class AdminCourseController extends Controller
     public function create()
     {
         //
+
         $courseCategories = CourseCategory::pluck('name', 'id')->all();
         $courseRegions = Region::pluck('region', 'id')->all();
+
+
+
         return view('admin.courses.create', compact('courseCategories', 'courseRegions'));
     }
 
@@ -53,7 +58,16 @@ class AdminCourseController extends Controller
     {
         //
 
-        $course = Course::create(request()->all());
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . "_" . $file->getClientOriginalName();
+            $file -> move('images',$name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+
+        $course = Course::create($input);
 
         $test = new Test();
         $test->course_id = $course->id;

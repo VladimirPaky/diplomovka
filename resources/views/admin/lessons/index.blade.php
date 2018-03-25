@@ -76,7 +76,7 @@
 				@foreach($lessons as $lesson)
 				<tr>
 					<td>{{ $lesson->id }}</td>
-					<td><a href="{{ route('course.lesson.show',[$course->id, $lesson->id])}} "><i class="fa fa-eye"></i>{{ " " . $lesson->title }}</a></td>
+					<td><a href="{{ route('lesson.show',$lesson->id)}}" target="_blank"><i class="fa fa-eye"></i>{{ " " . $lesson->title }}</a></td>
 					<td>{{ $lesson->description }}</td>
 				
 					<td>{{ $lesson->created_at ? $lesson->created_at->diffForHumans() : 'Nema dátum'}}</td>

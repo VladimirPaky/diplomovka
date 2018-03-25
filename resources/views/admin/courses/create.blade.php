@@ -5,7 +5,7 @@
 <h2>Nový kurz</h2>
 <hr>
 
-{!! Form::open(['method'=>'POST', 'action'=> 'AdminCourseController@store']) !!}
+{!! Form::open(['method'=>'POST', 'action'=> 'AdminCourseController@store', 'files'=>true]) !!}
 
 	<div class="form-group">
 		{!! Form::label('title', 'Nazov:') !!}
@@ -36,6 +36,11 @@
 		{!! Form::label('region_id', 'Region:') !!}
 		{!! Form::select('region_id', [''=>'Zvolte region'] + $courseRegions, null, ['class'=>'form-control'])!!}
     </div>
+
+    <div class="form-group">
+        {!! Form::label('photo_id', 'Obrázok:') !!}
+        {!! Form::file('photo_id', null, ['class'=>'form-control'])!!}
+     </div>
 
 	<div class="form-group">
 		{!! Form::label('teacher', 'Lektor:') !!}

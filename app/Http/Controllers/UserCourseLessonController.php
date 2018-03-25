@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\UserCourseApplication;
+use App\Lesson;
+
+use Auth;
 
 class UserCourseLessonController extends Controller
 {
@@ -21,7 +24,16 @@ class UserCourseLessonController extends Controller
 
         $applications = UserCourseApplication::all();
 
-        return view('course.lessons.index', compact('lessons', 'course'));
+        // $user_has_this_course = ($course->users()->where('user_id', $user->id)->get()->isEmpty() ? 0 :1);
+
+        $data = array(
+            'lessons' => $lessons,
+            'course' => $course,
+           // 'user_has_this_course' => $user_has_this_course
+
+        );
+
+        return view('course.lessons.index', $data);
     }
 
     /**
@@ -54,6 +66,16 @@ class UserCourseLessonController extends Controller
     public function show($id)
     {
         //
+        $user = Auth::user();
+        $lesson = Lesson::find($id);
+
+        if($lesson->course->users()->where('user_id', $user->id)->get()->isEmpty()){
+            // todo flash with errors
+            return redirect()->back();
+        }
+
+    
+        return view('course.lesson.lesson', compact('lesson', 'course'));
     }
 
     /**

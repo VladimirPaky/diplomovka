@@ -34,8 +34,13 @@
 
 	<div class="form-group">
 		{!! Form::label('region_id', 'Region:') !!}
-			{!! Form::select('region_id', $courseRegions, null, ['class'=>'form-control'])!!}
+		{!! Form::select('region_id', $courseRegions, null, ['class'=>'form-control'])!!}
     </div>
+
+    <div class="form-group">
+	    {!! Form::label('photo_id', 'Obrázok:') !!}
+	    {!! Form::file('photo_id', null, ['class'=>'form-control'])!!}
+	</div>
 
 	<div class="form-group">
 		{!! Form::label('teacher', 'Lektor:') !!}

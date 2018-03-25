@@ -12,25 +12,6 @@
     <meta name="base_url" content="{{ url('/') }}">
 
     <link href="{{asset('css/app_user.css')}}" rel="stylesheet">
-    
-    <!-- Bootstrap CSS-->
-{{--     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Font Awesome & Pixeden Icon Stroke icon font-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/pe-icon-7-stroke.css"> --}}
-    <!-- Google fonts - Roboto Condensed & Roboto-->
-    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400"> --}}
-    <!-- lightbox-->
-   {{--  <link rel="stylesheet" href="css/lightbox.min.css">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="favicon.png"> --}}
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
         @yield('styles')
     </head>
@@ -39,16 +20,16 @@
         <header class="header">
           <div role="navigation" class="navbar navbar-default">
             <div class="container">
-              <div class="navbar-header"><a href="index.html" class="navbar-brand">Viviecky vzdelavaci portal</a>
+              <div class="navbar-header"><a href="{{ route('portal.index') }}" class="navbar-brand">Viviecky vzdelavaci portal</a>
                 <div class="navbar-buttons">
                   <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
               </div>
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="text.html">Kurzy</a></li>
-              <li><a href="text.html">Blog</a></li>
+              <li class="active"><a href="{{ route('portal.index') }}">Domov</a></li>
+              <li><a href="{{ route('allCourses') }}">Kurzy</a></li>
+              <li><a href="{{ route('blog') }}">Blog</a></li>
               {{-- <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Dropdown item 1</a></li>

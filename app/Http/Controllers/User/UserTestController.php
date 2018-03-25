@@ -55,8 +55,18 @@ class UserTestController extends Controller
 
 		$results = $test->validateAnswers(request()->input('answers'));
 
+		$user = Auth::user();
 
-		TestResult::create(['result'=>$results]);
+
+		$test = new TestResult();
+		$test->user_id = $user->id;
+		$test->course_id = $test_id; 
+		//dorobit
+
+		$test->result = $results;
+
+		$test->save();
+
 
 		// var_dump($results);
 		// exit();

@@ -22,8 +22,8 @@
 		@foreach($courseApplications as $application)
 		<tr>
 			<td>{{ $application->id }}</td>
-			{{-- <td>{{ $application->user->name}}</td> --}}
-			{{-- <td>{{ $application->course->title	}}</td> --}}
+			<td>{{ $application->user()->name}}</td>
+			<td>{{ $application->course()->title}}</td>
 			<td><span class="label @if($application->payment)label-success @else label-danger @endif">{{ $application->payment == '1' ? 'Zaplatene' : 'Nezaplatane' }}</span></td>
 			<td><span class="label @if($application->access)label-success @else label-danger @endif">{{ $application->access == '1' ? 'Povoleny' : 'Nepovoleny' }}</span></td>
 			<td class="d-i-flex">

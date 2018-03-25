@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\UserCourseApplication;
+use App\AdminCourseApplication;
 use App\Course;
 
 class AdminCourseApplicationsController extends Controller
@@ -17,7 +17,7 @@ class AdminCourseApplicationsController extends Controller
     public function index()
     {
         //
-        $courseApplications = UserCourseApplication::all();
+        $courseApplications = AdminCourseApplication::all();
 
         return view('admin/applications.index', compact('courseApplications'));
 
@@ -69,7 +69,7 @@ class AdminCourseApplicationsController extends Controller
         //
         // $course = Course::findOrFail($course_id);
         
-        $application = UserCourseApplication::findOrFail($id);
+        $application = AdminCourseApplication::findOrFail($id);
 
         return view('admin.applications.edit', compact('application'));
     }
@@ -85,7 +85,7 @@ class AdminCourseApplicationsController extends Controller
     {
         //
 
-        $input = UserCourseApplication::findOrFail($id);
+        $input = AdminCourseApplication::findOrFail($id);
 
         $input->update($request->all());
 

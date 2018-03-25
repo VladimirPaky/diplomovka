@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Course;
-use Auth;
+use App\TestResult;
 
-class UserCourseApplicationsController extends Controller
+class AdminTestResultsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,6 +16,9 @@ class UserCourseApplicationsController extends Controller
     public function index()
     {
         //
+        $results = TestResult::all();
+
+        return view('admin.test-results.index', compact('results'));
     }
 
     /**
@@ -39,8 +40,6 @@ class UserCourseApplicationsController extends Controller
     public function store(Request $request)
     {
         //
-
-        return redirect()->back();
     }
 
     /**
@@ -86,25 +85,5 @@ class UserCourseApplicationsController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function signintocourse($course_id)
-    {
-        //
-
-        try{
-
-            $user = Auth::user();
-            $user->courses()->attach($course_id);
-
-            return redirect()->back();
-
-        }catch (Illuminate\Database\QueryException $e){
-            $errorCode = $e->errorInfo[1];
-            var_dump($errorCode);
-            if($errorCode == 1062){
-                return redirect()->back();
-            }
-        }
     }
 }

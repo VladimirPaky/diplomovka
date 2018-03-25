@@ -8,7 +8,9 @@
 		{!! Form::open(['method'=>'POST', 'route'=> ['signtocourse', $course->id]]) !!}
 
 		<div class="form-group">
-			{!! Form::submit('Prihlasiť sa a kurz', ['class'=>'btn btn-primary']) !!}
+			@if($user_has_this_course == false)
+				{!! Form::submit('Prihlasiť sa a kurz', ['class'=>'btn btn-primary']) !!}
+			@endif
 		</div>
 
 		{!! Form::close() !!}
@@ -26,7 +28,8 @@
 					<li>
 						<div class="col-md-12 well">
 							<div class="col-12">
-								<h3>{{$lesson->title }}</h3>
+								
+								<a href="{{ route('lesson.show', $lesson->id)}}"><h3>{{$lesson->title }}</h3></a>
 							</div>
 							<div class="col-12">
 								{{ $lesson->description }}

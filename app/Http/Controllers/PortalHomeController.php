@@ -14,6 +14,7 @@ use Illuminate\Pagination\Paginator;
 
 use App\Course;
 use App\Post;
+use App\CourseCategory;
 
 class PortalHomeController extends Controller
 {
@@ -26,8 +27,8 @@ class PortalHomeController extends Controller
     {
         //
 
-        $courses = Course::paginate(4);   
-        $posts = Post::all();
+        $courses = Course::take(8)->get();   
+        $posts = Post::take(8)->get();
 
         // $data = array(
         //     $courses => 'courses',
@@ -101,6 +102,31 @@ class PortalHomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function allCourses(){
+
+        if($filter = request()->input('category_id')){
+            $courses = Course::where('category_id', $filter)->orderBy('created_at', 'desc')->paginate(12);
+        }else{
+            $courses = Course::orderBy('created_at', 'desc')->paginate(16);
+        }
+
+        $courseCategories = CourseCategory::pluck('name', 'id')->all();
+
+        return view('courses', compact('courses', 'courseCategories'));
+    }
+
+    public function blog(){
+        $posts = Post::orderBy('created_at', 'desc')->paginate(16);
+
+        return view('blog', compact('posts'));
+    }
+
+     public function blogPost($id){
+        $posts = Post::where('id', $id)->get();
+
+        return view('blog-post', compact('posts'));
     }
 
 }

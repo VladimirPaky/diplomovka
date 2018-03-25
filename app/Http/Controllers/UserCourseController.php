@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\Lesson;
 
+use Auth;
 
 class UserCourseController extends Controller
 {
@@ -21,9 +22,19 @@ class UserCourseController extends Controller
 
         // $course = Course::find($course_id);
 
-        $lessons = $course->lessons()->get();
 
-        return view('course.index', compact('lessons', 'course'));
+        if(Auth::user()){
+            $user = Auth::user();
+
+            $lessons = $course->lessons()->get();
+
+            $user_has_this_course = !($course->users()->where('user_id', $user->id)->get()->isEmpty());
+
+            return view('course.index', compact('lessons', 'course', 'user_has_this_course'));
+        }else{
+            return redirect('portal');
+        }
+        
     }
 
     /**

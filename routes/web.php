@@ -45,6 +45,7 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
     Route::resource('courses.tests.questions.answers', 'AdminTestQuestionAnswersController');
 
     Route::resource('applications', 'AdminCourseApplicationsController');
+    Route::resource('results', 'AdminTestResultsController');
 
     // Route::resource('comments', 'PostCommentsController');
 
@@ -53,17 +54,21 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
     Route::get('/dashboard', 'AdminDashboardController@index')->name('dashboard');
 });	
 
-
-
 Route::post('/signtocourse/{course_id}', 'UserCourseApplicationsController@signintocourse')->name('signtocourse');
 
 Route::resource('/portal', 'PortalHomeController');
+Route::get('/all-courses', 'PortalHomeController@allCourses')->name('allCourses');
+
+
+Route::get('/blog', 'PortalHomeController@blog')->name('blog');
+Route::get('/blog/post/{post_id}', 'PortalHomeController@blogPost')->name('blogPost');
 
 Route::get('/test/{test_id}', 'User\UserTestController@startTest')->name('startTest');
 
 Route::post('/test/{test_id}', 'User\UserTestController@submitTest')->name('submit_test');
 
 Route::resource('course.lessons', 'UserCourseController');
+Route::resource('lesson', 'UserCourseLessonController');
 
 Route::post('/update-questoin-answer/{answer_id}', 'AdminTestQuestionAnswersController@editAnswerText');
 

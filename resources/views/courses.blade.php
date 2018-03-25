@@ -1,8 +1,30 @@
-@extends('layouts.portal-home')
+@extends('layouts.portal')
 
 @section('content')
+
+{{-- {!! Form::open(['method'=>'GET', 'route'=> ['filterCourses', $courseCategories->id]]) !!} --}}
+
+
+
+
 <div class="col">
 	<h2>Kurzy</h2>
+
+{!! Form::open(['method'=>'GET', 'route'=> 'allCourses']) !!}
+
+<div class="form-group">
+	{!! Form::label('category_id', 'Ketgória:') !!}
+	{!! Form::select('category_id', [''=>'Zvolte ketegóriu'] + $courseCategories, null, ['class'=>'form-control'])!!}
+</div>
+
+	<div class="form-group">
+		{!! Form::submit('Filter', ['class'=>'btn btn-primary']) !!}
+	</div>
+
+{!! Form::close() !!}
+
+<br>
+
 	@foreach($courses as $course)
 <div class="col"></div>
 	<div class=" col-md-3 course post">
@@ -15,28 +37,9 @@
 	</div>
 @endforeach
 <div class="clearfix"></div>
-
+{{ $courses->links() }}
 <div class="clearfix"></div>
 
-	<h2>Blog</h2>
-	<div class="col-md-12">
-	@foreach($posts as $post)
-
-	<div class=" col-md-3 post">
-		{{-- <div><img src="{{ $post->photo ? photo()->getFileUrl() }}"></div> --}}
-		<div class="image"><a href="text.html">
-			<img src="{{ $post->photo->getFileUrl()}}" alt="" class="img-responsive"></a></div>
-		<h3>{{ $post->title }}</h3>
-		<h5>{{ $post->category->name }}</h5>
-		{{-- <p class="post__intro">{{ str_limit($course->description, 100) }}</p> --}}
-		
-		<p class="read-more"><a href="text.html" class="btn btn-ghost">Viac</a></p>
-	</div>
-
-
-
-	@endforeach
-</div>
 
 </div>
 @endsection

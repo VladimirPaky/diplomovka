@@ -17,7 +17,7 @@ class CreateTestResultsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('course_id')->unsigned()->index();
-            $table->integer('result')->unsigned()->index();
+            $table->float('result', 8, 2)->unsigned()->index();
             $table->timestamps();
         }); 
     }

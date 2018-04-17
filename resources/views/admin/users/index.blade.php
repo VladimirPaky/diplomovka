@@ -67,9 +67,9 @@
 
 	</tbody>
 </table>
-
+<br>
 <div class="pull-right">
-	<a class="btn btn-primary" href="{{route('users.create')}}"><i class="fa fa-plus">&nbsp</i><i class="fa fa-book"></i> Nová lekcia</a>
+	<a class="btn btn-primary" href="{{route('users.create')}}"><i class="fa fa-plus">&nbsp</i><i class="fa fa-user"></i> Nový používateľ</a>
 	{{-- <a class="pull-right btn btn-primary" href="{{  }}"><i class="fa fa-plus">&nbsp</i><i class="fa fa-book"></i> Nová lekcia</a> --}}
 </div>
 

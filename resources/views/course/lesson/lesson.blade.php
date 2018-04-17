@@ -10,12 +10,17 @@
 				<div class="col-12">
 					<h3>{{$lesson->title }}</h3>
 				</div>
+				<hr>
 				<div class="col-12">
-					{{ $lesson->contet }}
+					<p>{{$lesson->description }}</p>
+				</div>
+				<hr>
+				<div class="col-12">
+					{!! $lesson->content !!}
 				</div>
 
 
-
+w
 
 	</div>
 	@endsection

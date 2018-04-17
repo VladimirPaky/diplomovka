@@ -26,7 +26,6 @@ class CreateCoursesTable extends Migration
             $table->text('additional_info');
             $table->text('slug');
             $table->timestamps();
-
         });
     }
 

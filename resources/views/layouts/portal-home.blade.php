@@ -20,7 +20,7 @@
         <header class="header">
           <div role="navigation" class="navbar navbar-default">
             <div class="container">
-              <div class="navbar-header"><a href="{{ route('portal.index') }}" class="navbar-brand">Viviecky vzdelavaci portal</a>
+              <div class="navbar-header"><a href="{{ route('portal.index') }}" class="navbar-brand">Vidiecky vzdelávaci portál</a>
                 <div class="navbar-buttons">
                   <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
               </div>
@@ -126,8 +126,7 @@
           <p>&copy;2017 Vidiecky vzdelavaci portal</p>
       </div>
       <div class="col-md-6">
-          <p class="credit">Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious templates</a></p>
-          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+          <p class="credit">Diplmomová práca SPU Nitra</p>
       </div>
   </div>
 </div>

@@ -27,8 +27,8 @@
 			<th>Tel. číslo</th>
 			<th>Rola</th>
 			<th>Stav</th>
-			<th>Vytvorený</th>
-			<th>Aktualizovaný</th>
+			{{-- <th>Vytvorený</th>
+			<th>Aktualizovaný</th> --}}
 			<th>Operácie</th>
 		</tr>
 	</thead>
@@ -47,8 +47,8 @@
 
 			<td><span class="label @if($user->is_active)label-success @else label-danger @endif">{{ $user->is_active == '1' ? 'Aktivovaný' : 'Neaktivovaný' }}</span></td>
 
-			<td>{{ $user->created_at}} ({{ $user->created_at->diffForHumans() }})</td>
-			<td>{{ $user->updated_at}} ({{ $user->updated_at->diffForHumans() }})</td>
+			{{-- <td>{{ $user->created_at}} ({{ $user->created_at->diffForHumans() }})</td>
+			<td>{{ $user->updated_at}} ({{ $user->updated_at->diffForHumans() }})</td> --}}
 			<td class="d-i-flex">
 				<a class="btn btn-sm btn-primary" href="{{route('users.edit', $user->id)}}"><i class="fa fa-edit"></i></a>
 

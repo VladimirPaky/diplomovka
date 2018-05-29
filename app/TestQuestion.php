@@ -25,8 +25,6 @@ class TestQuestion extends Model
         return $this->hasMany('App\TestQuestionAnswer');
     }
 
-
-
     public function questions(){
         return $this->hasMany('App\TestQuestions');
     }

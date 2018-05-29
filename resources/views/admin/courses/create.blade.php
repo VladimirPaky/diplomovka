@@ -8,7 +8,7 @@
 {!! Form::open(['method'=>'POST', 'action'=> 'AdminCourseController@store', 'files'=>true]) !!}
 
 	<div class="form-group">
-		{!! Form::label('title', 'Nazov:') !!}
+		{!! Form::label('title', 'Názov:') !!}
 		{!! Form::text('title', null, ['class'=>'form-control'])!!}
 	</div>
 

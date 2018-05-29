@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Zoznam otázok pre kurz: {{ $course->title }} </h1>
+<h1>Zoznam otázok pre kurz: <span style="color: blue;">{{ $course->title }}</span> </h1>
 <hr>
 
 <input type="hidden" id="test_id" value="{{$test_id}}">
@@ -14,13 +14,13 @@
 		<tr>
 			<th>ID</th>
 			{{-- <th>test_id</th> --}}
-			<th>Otazka</th>
+			<th>Otázka</th>
 			{{-- <th>type</th> --}}
 			<th>Odpovede</th>
 			{{-- <th>show_correct_answers_count</th>
 			<th>position</th>
 			<th>position_random</th> --}}
-			<th>Operacie</th>
+			<th>Operácie</th>
 		</tr>
 	</thead>
 
@@ -43,7 +43,7 @@
 					</li>
 
 					@endforeach	
-					<a class="" href="{{route('courses.tests.questions.answers.index', [$course->id, $test_id, $question->id])}}"><i class="fa fa-plus"> Manazovat odpovede</i></a>
+					<a class="" href="{{route('courses.tests.questions.answers.index', [$course->id, $test_id, $question->id])}}"><i class="fa fa-plus"> Manažovať odpovede</i></a>
 
 					@show
 				</ul>	

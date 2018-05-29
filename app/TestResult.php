@@ -12,4 +12,13 @@ class TestResult extends Model
     	'result'
     ];
 
+
+
+	public function course(){
+        return Course::find($this->course_id);
+    }
+
+    public function user(){
+        return User::find($this->user_id);
+    }
 }

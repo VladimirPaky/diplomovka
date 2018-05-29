@@ -2,16 +2,32 @@
 
 @section('content')
 
-<h3>FILTER: dropdown kategoria >> GO</h3>
+
 <div class="col">
 	<h2>Blog</h2>
+
+	{!! Form::open(['method'=>'GET', 'route'=> 'blog']) !!}
+
+<div class="form-group">
+	{!! Form::label('category_id', 'Ketgória:') !!}
+	{!! Form::select('category_id', [''=>'Zvolte ketegóriu'] + $courseCategories, null, ['class'=>'form-control'])!!}
+</div>
+
+	<div class="form-group">
+		{!! Form::submit('Filter', ['class'=>'btn btn-primary']) !!}
+	</div>
+
+{!! Form::close() !!}
+
+
+
 	<div class="col-md-12">
 	@foreach($posts as $post)
 
 	<div class=" col-md-3 post">
 		{{-- <div><img src="{{ $post->photo ? photo()->getFileUrl() }}"></div> --}}
 		<div class="image"><a href="text.html">
-			<img src="{{ $post->photo->getFileUrl()}}" alt="" class="img-responsive"></a></div>
+			<img src="{{ $post->photo ? $post->photo->getFileUrl() : 'http://placehold.it/200?text=Nema+fotku' }}" alt="" class="img-responsive"></a></div>
 		<h3>{{ $post->title }}</h3>
 		<h5>{{ $post->category->name }}</h5>
 		{{-- <p class="post__intro">{{ str_limit($course->description, 100) }}</p> --}}

@@ -5,7 +5,6 @@
 	<div class="col-md-12">
 		{{-- <h2>{{$course->title}}</h2> --}}
 
-
 		<hr>
 				<div class="col-12">
 					<h3>{{$lesson->title }}</h3>
@@ -18,9 +17,6 @@
 				<div class="col-12">
 					{!! $lesson->content !!}
 				</div>
-
-
-w
 
 	</div>
 	@endsection

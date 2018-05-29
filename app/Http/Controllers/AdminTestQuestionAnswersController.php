@@ -31,7 +31,7 @@ class AdminTestQuestionAnswersController extends Controller
 
         //$answers = $course->answers()->get();
 
-        $view = View::make('admin.answers.index', compact('course', 'test_id', 'question_id', 'answers'));
+        $view = View::make('admin.answers.index', compact('course', 'test_id', 'question_id', 'answers', 'question'));
 
         if(request()->ajax()) {
             $sections = $view->renderSections(); 

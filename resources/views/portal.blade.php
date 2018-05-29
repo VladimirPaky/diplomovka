@@ -6,7 +6,7 @@
 	@foreach($courses as $course)
 <div class="col"></div>
 	<div class=" col-md-3 course post">
-		<div class="image"><a href="text.html"><img src="{{ $course->photo ? $course->photo->getFileUrl() : 'http://placehold.it/200?text=Nema+fotku' }}" alt="" class="img-responsive"></a></div>
+		<div class="image"><a href="{{route('course.lessons.index', $course->slug)}}"><img src="{{ $course->photo ? $course->photo->getFileUrl() : 'http://placehold.it/200?text=Nema+fotku' }}" alt="" class="img-responsive"></a></div>
 		<h3>{{ $course->title }}</h3>
 		<h5>{{ $course->category->name }}</h5>
 		<p class="post__intro">{{ str_limit($course->description, 100) }}</p>
@@ -24,13 +24,13 @@
 
 	<div class=" col-md-3 post">
 		{{-- <div><img src="{{ $post->photo ? photo()->getFileUrl() }}"></div> --}}
-		<div class="image"><a href="text.html">
-			<img src="{{ $post->photo->getFileUrl()}}" alt="" class="img-responsive"></a></div>
+		<div class="image"><a href="{{route('blogPost', $post->id)}}">
+			<img src="{{ $post->photo ? $post->photo->getFileUrl() : 'http://placehold.it/200?text=Nema+fotku' }}" alt="" class="img-responsive"></a></div>
 		<h3>{{ $post->title }}</h3>
 		<h5>{{ $post->category->name }}</h5>
 		{{-- <p class="post__intro">{{ str_limit($course->description, 100) }}</p> --}}
 		
-		<p class="read-more"><a href="text.html" class="btn btn-ghost">Viac</a></p>
+		<p class="read-more"><a href="{{route('blogPost', $post->id)}}" class="btn btn-ghost">Viac</a></p>
 	</div>
 
 

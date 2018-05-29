@@ -46,18 +46,22 @@ Route::group(['middleware'=>'admin', 'prefix' => 'admin'], function() {
 
     Route::resource('applications', 'AdminCourseApplicationsController');
     Route::resource('results', 'AdminTestResultsController');
+    Route::resource('banners', 'AdminBannerController');
 
     // Route::resource('comments', 'PostCommentsController');
 
     // Route::resource('comments.replies', 'CommentRepliesController');
 
     Route::get('/dashboard', 'AdminDashboardController@index')->name('dashboard');
+
+
 });	
 
 Route::post('/signtocourse/{course_id}', 'UserCourseApplicationsController@signintocourse')->name('signtocourse');
 
 Route::resource('/portal', 'PortalHomeController');
 Route::get('/all-courses', 'PortalHomeController@allCourses')->name('allCourses');
+
 
 
 Route::get('/blog', 'PortalHomeController@blog')->name('blog');

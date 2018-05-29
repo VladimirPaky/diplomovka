@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h1>Zoznam odpovedi pre otazku</h1>
-{{-- {{ $course->questions() }} --}}	
+<h1>Zoznam odpovedí pre  otázku: <span style="color: blue;">{{ $question->question }}</span></h1>
+
 <hr>
-<a class="btn btn-primary btn-sm" href="{{ route('courses.tests.questions.index',[$course->id, $test_id])}}">Spat na zoznam otazok</a>
+<a class="btn btn-primary btn-sm" href="{{ route('courses.tests.questions.index',[$course->id, $test_id])}}">Späť na zoznam otázok</a>
 <br>
 <br>
 <table id="mojaTabulka" class="table">
@@ -14,7 +14,7 @@
 			<th>ID</th>
 			<th>Otazka</th>
 			{{-- <th>Spravna odpoved</th> --}}
-			<th>Operacie</th>
+			<th>Operácie</th>
 		</tr>
 	</thead>
 

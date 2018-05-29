@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin - Vidiecky Vzdelávací portál</title>
+    <title>Vidiecky Vzdelávací portál</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -26,19 +26,28 @@
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{{ route('portal.index') }}">Home</a></li>
-              <li><a href="{{ route( 'allCourses') }}">Kurzy</a></li>
-              <li><a href="{{ route( 'blog') }}">Blog</a></li>
-              {{-- <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Dropdown item 1</a></li>
-                  <li><a href="#">Dropdown item 2</a></li>
-                  <li><a href="#">Dropdown item 3</a></li>
-                  <li><a href="#">Dropdown item 4</a></li>
-              </ul>
-          </li> --}}
-          <li><a href="contact.html">Kontakt</a></li>
-      </ul><a href="#" data-toggle="modal" data-target="#login-modal" class="btn navbar-btn btn-white pull-left"><i class="fa fa-sign-in"></i>Log in</a>
+              <li class="active"><a href="{{ route('portal.index') }}">Domov</a></li>
+
+
+                <li><a href="{{ route('allCourses') }}">Kurzy</a></li>
+                <li><a href="{{ route('blog') }}">Blog</a></li>
+      
+      <?php if (Auth::check()) {
+                ?>
+                <li><a href="#">|</a></li>
+                <li><a href="#">{{Auth::user()->name}}</a></li>
+                <a style="border:none; margin-right: 5px;" href="{{ route('logout') }}" class="btn navbar-btn btn-white pull-left"><i class="fa fa-sign-out"></i>Log out</a>
+                <?php
+              }else{
+                ?>
+
+
+      <a style="border:none; margin-right: 5px;" href="{{ route('login') }}" class="btn navbar-btn btn-white pull-left"><i class="fa fa-sign-in"></i>Log in</a>
+      <a href="{{ route('register') }}" class="btn navbar-btn btn-white pull-left"><i class="fa fa-sign-in"></i>Registrácia</a>
+</ul>
+        <?php
+
+              }?>
   </div>
 </div>
 </div>

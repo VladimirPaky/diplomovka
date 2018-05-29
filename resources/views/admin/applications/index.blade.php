@@ -9,10 +9,10 @@
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>Prihlaseny</th>
+			<th>Prihláseny</th>
 			<th>Kurz</th>
 			<th>Platba</th>
-			<th>Pristup do kurzu</th>
+			<th>Prístup do kurzu</th>
 			<th>Operácie</th>
 		</tr>
 	</thead>

@@ -118,9 +118,15 @@ class PortalHomeController extends Controller
     }
 
     public function blog(){
-        $posts = Post::orderBy('created_at', 'desc')->paginate(16);
+         if($filter = request()->input('category_id')){
+            $posts = Course::where('category_id', $filter)->orderBy('created_at', 'desc')->paginate(12);
+        }else{
+            $posts = Course::orderBy('created_at', 'desc')->paginate(16);
+        }
 
-        return view('blog', compact('posts'));
+        $courseCategories = CourseCategory::pluck('name', 'id')->all();
+
+        return view('blog', compact('posts', 'courseCategories'));
     }
 
      public function blogPost($id){
@@ -128,5 +134,7 @@ class PortalHomeController extends Controller
 
         return view('blog-post', compact('posts'));
     }
+
+
 
 }

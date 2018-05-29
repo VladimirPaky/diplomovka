@@ -19,6 +19,7 @@ class AdminTestResultsController extends Controller
         $results = TestResult::all();
 
         return view('admin.test-results.index', compact('results'));
+
     }
 
     /**

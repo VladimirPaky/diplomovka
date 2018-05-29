@@ -146,6 +146,10 @@
                             <li>
                                 <a href="{{ route('applications.index') }}">Prihlášky</a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('results.index') }}">Výsledky testov</a>
+                            </li>
 {{-- 
                             <li>
                                 <a href="{{ route('courses.lessons.index', ) }}">Zoznam lekcii</a>
@@ -211,10 +215,21 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
- --}}
+ --}}                
+
+                   {{-- < li>
+                        <a href="#"><i class="fa fa-image fa-fw"></i> Banneri<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ route('banners.index') }}">Zoznam bannerov</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li> --}}
 
                      <li>
-                        <a href="#"><i class="fa fa-image fa-fw"></i> Súbory<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-file fa-fw"></i> Súbory<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ route('media.index') }}">Zoznam súborov</a>

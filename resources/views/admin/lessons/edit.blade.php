@@ -4,7 +4,7 @@
 
 @include('includes.tinymce')
 
-<h1>Editacia lekcie: {{$lesson->title}}</h1>
+<h1>Editácia lekcie: {{$lesson->title}}</h1>
 
 <hr>
 	{!! Form::model($lesson, ['method'=>'PATCH', 'route'=> ['course.lesson.update', $course_id, $lesson->id ]]) !!}

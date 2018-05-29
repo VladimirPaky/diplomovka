@@ -58,7 +58,7 @@ class AdminCourseLessonsController extends Controller
         //
         $lesson = Lesson::create($request->all() + ['course_id' => $course_id]);
 
-        return redirect('admin/courses/' . $course_id . '/lessons');
+        return redirect('admin/course/' . $course_id . '/lessons');
 
     }
 
@@ -102,7 +102,7 @@ class AdminCourseLessonsController extends Controller
 
         $input->update($request->all());
 
-        return redirect('/admin/lessons');
+        return redirect()->back();
     }
 
     /**
@@ -117,6 +117,6 @@ class AdminCourseLessonsController extends Controller
 
         $lesson = Lesson::findOrFail($id)->delete();
 
-        return redirect()->back();
+        return view('admin.course.index');
     }
 }

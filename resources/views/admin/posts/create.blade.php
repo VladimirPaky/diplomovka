@@ -12,7 +12,7 @@
 
 
 	<div class="form-group">
-		{!! Form::label('title', 'Title:') !!}
+		{!! Form::label('title', 'Názov:') !!}
 		{!! Form::text('title', null, ['class'=>'form-control'])!!}
 	</div>
 
@@ -29,7 +29,7 @@
      </div>
 
      <div class="form-group">
-		{!! Form::label('body', 'Obsah') !!}
+		{!! Form::label('body', 'Obsah:') !!}
 		{!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>15])!!}
 	</div>
 

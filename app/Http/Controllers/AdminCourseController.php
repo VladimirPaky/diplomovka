@@ -43,8 +43,6 @@ class AdminCourseController extends Controller
         $courseCategories = CourseCategory::pluck('name', 'id')->all();
         $courseRegions = Region::pluck('region', 'id')->all();
 
-
-
         return view('admin.courses.create', compact('courseCategories', 'courseRegions'));
     }
 
@@ -74,8 +72,6 @@ class AdminCourseController extends Controller
         $test->final_exam = true;
 
         $test->save();
-
-
 
         return redirect()->back();
     }
@@ -107,7 +103,6 @@ class AdminCourseController extends Controller
 
         $courseRegions = Region::pluck('region', 'id')->all();
 
-
         return view('admin.courses.edit', compact('course', 'courseCategories', 'courseRegions'));
     }
 
@@ -123,6 +118,18 @@ class AdminCourseController extends Controller
         //
 
         $input = Course::findOrFail($id);
+
+        // $input = $request->all();
+
+        // spravit refaktoring
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] =$photo->id;
+        }
 
         $input->update($request->all());
 

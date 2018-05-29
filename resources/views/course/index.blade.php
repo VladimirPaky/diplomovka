@@ -3,20 +3,20 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-		<h2>{{$course->title}}</h2>
+		<h2 style="margin-bottom: 30px;">{{$course->title}}</h2>
 
 		{!! Form::open(['method'=>'POST', 'route'=> ['signtocourse', $course->id]]) !!}
 
 		<div class="form-group">
 			@if($user_has_this_course == false)
-				{!! Form::submit('Prihlasiť sa a kurz', ['class'=>'btn btn-primary']) !!}
+				{!! Form::submit('Prihlasiť sa na kurz', ['class'=>'btn btn-primary']) !!}
 			@endif
 		</div>
 
 		{!! Form::close() !!}
 
 		<hr>
-		<h4>Zoznam lekcii</h4>
+		<h4 style="margin-bottom: 30px;">Zoznam lekcii</h4>
 
 
 
@@ -42,7 +42,7 @@
 			
 			@if(Auth::user())
 
-				<a class="btn btn-ghost" href="{{ route('startTest', $course->id) }}">TEST</a>
+				<a class="btn btn-ghost" href="{{ route('startTest', $course->id) }}" style="margin-bottom: 25px;">TEST</a>
 
 			@endif
 

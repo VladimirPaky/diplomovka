@@ -8,10 +8,9 @@
 	<hr>
 
 <div class="">
-	<img class="img-responsive" src="{{ $post->photo->file}}">
+	<img class="img-responsive" src="{{ $post->photo ? $post->photo->getFileUrl() : 'http://placehold.it/200?text=Nema+fotku' }}">
 	<br>
 </div>
-
 
 <div class="row">
 	{!! Form::model($post, ['method'=>'PATCH', 'action'=> ['AdminPostsController@update', $post->id], 'files'=>true])!!}
